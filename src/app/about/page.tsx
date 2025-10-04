@@ -31,7 +31,7 @@ function Values() {
 
       <SectionIntro
         eyebrow="Our values"
-        title="Guided by quality, culture, and authenticity"
+        title="Guided by quality, culture, and authenticity."
       >
         <p>
           Our work is grounded in values that shape every decision we make —
