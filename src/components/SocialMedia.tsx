@@ -39,6 +39,7 @@ export function SocialMedia({
             href={socialMediaProfile.href}
             aria-label={socialMediaProfile.title}
             target="_blank"
+            rel="noopener noreferrer"
             className={clsx(
               'transition',
               invert ? 'hover:text-neutral-200' : 'hover:text-neutral-700',

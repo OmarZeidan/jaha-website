@@ -285,7 +285,7 @@ function CoreBelief() {
       </SectionIntro>
 
       <Image
-        alt="TODO:"
+        alt=""
         src={imageServices}
         className="mt-6 h-full w-full object-cover lg:mt-0"
       />
@@ -335,7 +335,7 @@ export default async function About() {
     <RootLayout>
       <PageIntro
         eyebrow="About Us"
-        title="We don't just create places; we crete experiences!"
+        title="We don't just create places; we create experiences!"
       >
         <p className="text-xl">
           Jahangir for Restaurants Operations and Management is a leading
