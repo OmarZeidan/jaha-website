@@ -19,9 +19,60 @@ import IconLeaf from '@/images/icons/leaf.svg'
 import IconUsersGroup from '@/images/icons/users-three-fill.svg'
 import IconFingerPrint from '@/images/icons/fingerprint-fill.svg'
 
+const milestones = [
+  {
+    year: 2011,
+    title: 'Launch of Oliva Pizza and Pasta',
+    description:
+      'Oliva opened its doors in Jabal Al-Lweibdeh in 2011, introducing a new take on authentic Italian dining in Amman. From its first days, Oliva built a sense of community around its tables, turning a simple idea into a beloved part of the neighborhood.',
+  },
+  {
+    year: 2013,
+    title: 'Launch of Rumi Café',
+    description:
+      'In 2013 we opened Rumi Café in Jabal Al-Lweibdeh. It was one of the very first neighborhood café concepts in Amman, designed to feel open and connected to the street. Over time it became a destination in itself, where people from the area and beyond came to enjoy its atmosphere, share tea and coffee, and linger in conversation.',
+  },
+  {
+    year: 2014,
+    title: 'Opening of Rumi at Darat al Funun',
+    description:
+      'In 2014 we opened a small Rumi outpost at Darat al-Funun. Set among historic houses and gardens, it offered visitors a quiet spot to pause, drink tea or coffee, and enjoy art and conversation before or after exhibitions. It became a gentle extension of Rumi’s spirit in one of Amman’s most beautiful cultural spaces.',
+  },
+  {
+    year: 2015,
+    title: 'Opening of Rumi Café at Abdul Hameed Shoman Foundation',
+    description:
+      'In 2015 we opened a Rumi inside one of Amman’s most important libraries at the Abdul Hameed Shoman Foundation. Surrounded by books, it became a calm spot for students, researchers, and visitors to pause, share tea or coffee, and continue their conversations.',
+  },
+  {
+    year: 2022,
+    title: 'Opening of Oliva in Shmeisani',
+    description:
+      'In 2022 we opened Oliva in Shmeisani, a district with a nostalgic, retro character that still carries the charm of old Amman. This second location allowed Oliva to grow and expand its experience and menu, bringing our neighbourhood pizzeria feeling into a new setting. With its welcoming terrace, it quickly became a familiar place for people from the area and beyond to enjoy fresh Italian food and spend time together.',
+  },
+  {
+    year: 2023,
+    title: 'Established a New Central Kitchen',
+    description:
+      'In 2023 we opened a new Central Kitchen in a larger location, taking our operations to an entirely new scale. Purpose-built, highly equipped and run with strict quality standards, it became the heart of Jahangir’s brands. This is where ingredients are prepared, recipes perfected, and consistency maintained before reaching every café and restaurant.',
+  },
+  {
+    year: 2024,
+    title: 'Launch of Bahi Café',
+    description:
+      'In 2024 we opened Bahi Café in Shmeisani next to our Oliva location. Bahi draws on the retro character of the area and reinterprets it through a contemporary design with soft colours and thoughtful details. Many of its elements were custom made or specially designed to fit the space, from furniture to fixtures, and the art selection was curated to echo the café’s atmosphere and story. It was created as a calm and elegant space for tea, coffee and light meals, with a menu built around a carefully curated selection of teas and seasonal dishes. Together with Oliva it offers two distinct yet connected experiences in the same neighbourhood.',
+  },
+  {
+    year: 2025,
+    title: 'Opening of Rumi Deli',
+    description:
+      'In 2025, Rumi Deli opened its doors in Jabal Al-Lweibdeh as a new destination for freshly baked breads, sourdough manaqeesh, traditional Zaatar Mutabbaq, and locally inspired sandwiches. It’s an interactive and casual space centered around the craft of daily baking and honest, simple food. Behind the glass kitchen, everything is made fresh each morning — from the dough to the fillings — offering visitors a glimpse into the rhythm of the deli. Rooted in the same spirit that shaped Rumi Café, Rumi Deli stands on its own as a vibrant place that celebrates good bread, local ingredients, and the beauty of everyday food.',
+  },
+]
+
 function Values() {
   return (
-    <div className="relative mt-24 pt-24 sm:mt-32 sm:pt-32 lg:mt-40 lg:pt-40">
+    <div className="relative mt-24 pt-24">
       <div className="absolute inset-x-0 top-0 -z-10 h-[884px] overflow-hidden rounded-t-4xl bg-linear-to-b from-neutral-50">
         <GridPattern
           className="absolute inset-0 h-full w-full mask-[linear-gradient(to_bottom_left,white_40%,transparent_50%)] fill-neutral-100 stroke-neutral-950/5"
@@ -88,177 +139,31 @@ function TimeLine() {
       ></SectionIntro>
       <Container className="mt-16">
         <ol className="relative space-y-8 before:absolute before:top-0 before:left-1/2 before:h-full before:w-0.5 before:-translate-x-1/2 before:rounded-full before:bg-gray-200">
-          <li className="group relative grid grid-cols-2 odd:-me-3 even:-ms-3">
-            <div className="relative flex items-start gap-4 group-odd:flex-row-reverse group-odd:text-right group-even:order-last">
-              <span className="size-3 shrink-0 rounded-full bg-gray-600"></span>
+          {milestones.map((milestones) => {
+            return (
+              <li className="group relative grid grid-cols-2 odd:-me-3 even:-ms-3">
+                <div className="relative flex items-start gap-4 group-odd:flex-row-reverse group-odd:text-right group-even:order-last">
+                  <span className="size-3 shrink-0 rounded-full bg-rumiPrimary"></span>
 
-              <div className="-mt-2">
-                <time className="text-xs/none font-medium text-gray-700">
-                  2011
-                </time>
+                  <div className="-mt-2">
+                    <time className="text-xs/none font-black text-gray-700 underline">
+                      {milestones.year}
+                    </time>
 
-                <h3 className="text-lg font-bold text-gray-900">
-                  Launch of Oliva
-                </h3>
+                    <h3 className="text-lg font-bold text-gray-900">
+                      {milestones.title}
+                    </h3>
 
-                <p className="mt-0.5 text-sm text-gray-700">
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Fuga
-                  officiis tempora ipsum adipisci tenetur sunt quae
-                  exercitationem sed pariatur porro!
-                </p>
-              </div>
-            </div>
+                    <p className="mt-0.5 text-sm text-gray-700">
+                      {milestones.description}
+                    </p>
+                  </div>
+                </div>
 
-            <div aria-hidden="true"></div>
-          </li>
-
-          <li className="group relative grid grid-cols-2 odd:-me-3 even:-ms-3">
-            <div className="relative flex items-start gap-4 group-odd:flex-row-reverse group-odd:text-right group-even:order-last">
-              <span className="size-3 shrink-0 rounded-full bg-gray-600"></span>
-
-              <div className="-mt-2">
-                <time className="text-xs/none font-medium text-gray-700">
-                  2013
-                </time>
-
-                <h3 className="text-lg font-bold text-gray-900">
-                  Launch of Rumi
-                </h3>
-              </div>
-            </div>
-
-            <div aria-hidden="true"></div>
-          </li>
-
-          <li className="group relative grid grid-cols-2 odd:-me-3 even:-ms-3">
-            <div className="relative flex items-start gap-4 group-odd:flex-row-reverse group-odd:text-right group-even:order-last">
-              <span className="size-3 shrink-0 rounded-full bg-gray-600"></span>
-
-              <div className="-mt-2">
-                <time className="text-xs/none font-medium text-gray-700">
-                  2014
-                </time>
-
-                <h3 className="text-lg font-bold text-gray-900">
-                  Opening of Rumi at Darat al Funun
-                </h3>
-
-                <p className="mt-0.5 text-sm text-gray-700">
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Fuga
-                  officiis tempora ipsum adipisci tenetur sunt quae
-                  exercitationem sed pariatur porro!
-                </p>
-              </div>
-            </div>
-
-            <div aria-hidden="true"></div>
-          </li>
-
-          <li className="group relative grid grid-cols-2 odd:-me-3 even:-ms-3">
-            <div className="relative flex items-start gap-4 group-odd:flex-row-reverse group-odd:text-right group-even:order-last">
-              <span className="size-3 shrink-0 rounded-full bg-gray-600"></span>
-
-              <div className="-mt-2">
-                <time className="text-xs/none font-medium text-gray-700">
-                  2015
-                </time>
-
-                <h3 className="text-lg font-bold text-gray-900">
-                  Opening of Rumi at Abdul Hameed Shoman Foundation
-                </h3>
-              </div>
-            </div>
-
-            <div aria-hidden="true"></div>
-          </li>
-
-          <li className="group relative grid grid-cols-2 odd:-me-3 even:-ms-3">
-            <div className="relative flex items-start gap-4 group-odd:flex-row-reverse group-odd:text-right group-even:order-last">
-              <span className="size-3 shrink-0 rounded-full bg-gray-600"></span>
-
-              <div className="-mt-2">
-                <time className="text-xs/none font-medium text-gray-700">
-                  2022
-                </time>
-
-                <h3 className="text-lg font-bold text-gray-900">
-                  Opening of Oliva in Shmeisani{' '}
-                </h3>
-
-                <p className="mt-0.5 text-sm text-gray-700">
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Fuga
-                  officiis tempora ipsum adipisci tenetur sunt quae
-                  exercitationem sed pariatur porro!
-                </p>
-              </div>
-            </div>
-
-            <div aria-hidden="true"></div>
-          </li>
-
-          <li className="group relative grid grid-cols-2 odd:-me-3 even:-ms-3">
-            <div className="relative flex items-start gap-4 group-odd:flex-row-reverse group-odd:text-right group-even:order-last">
-              <span className="size-3 shrink-0 rounded-full bg-gray-600"></span>
-
-              <div className="-mt-2">
-                <time className="text-xs/none font-medium text-gray-700">
-                  2023
-                </time>
-
-                <h3 className="text-lg font-bold text-gray-900">
-                  Established the Central Kitchen
-                </h3>
-
-                <p className="mt-0.5 text-sm text-gray-700">
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Fuga
-                  officiis tempora ipsum adipisci tenetur sunt quae
-                  exercitationem sed pariatur porro!
-                </p>
-              </div>
-            </div>
-
-            <div aria-hidden="true"></div>
-          </li>
-          <li className="group relative grid grid-cols-2 odd:-me-3 even:-ms-3">
-            <div className="relative flex items-start gap-4 group-odd:flex-row-reverse group-odd:text-right group-even:order-last">
-              <span className="size-3 shrink-0 rounded-full bg-gray-600"></span>
-
-              <div className="-mt-2">
-                <time className="text-xs/none font-medium text-gray-700">
-                  2024
-                </time>
-
-                <h3 className="text-lg font-bold text-gray-900">
-                  Launch of Bahi
-                </h3>
-              </div>
-            </div>
-
-            <div aria-hidden="true"></div>
-          </li>
-          <li className="group relative grid grid-cols-2 odd:-me-3 even:-ms-3">
-            <div className="relative flex items-start gap-4 group-odd:flex-row-reverse group-odd:text-right group-even:order-last">
-              <span className="size-3 shrink-0 rounded-full bg-gray-600"></span>
-
-              <div className="-mt-2">
-                <time className="text-xs/none font-medium text-gray-700">
-                  2025
-                </time>
-
-                <h3 className="text-lg font-bold text-gray-900">
-                  Opening of Rumi Deli
-                </h3>
-
-                <p className="mt-0.5 text-sm text-gray-700">
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Fuga
-                  officiis tempora ipsum adipisci tenetur sunt quae
-                  exercitationem sed pariatur porro!
-                </p>
-              </div>
-            </div>
-
-            <div aria-hidden="true"></div>
-          </li>
+                <div aria-hidden="true"></div>
+              </li>
+            )
+          })}
         </ol>
       </Container>
     </div>
