@@ -1,9 +1,12 @@
 import logo from '@/images/logos/rumi-logo.svg'
-import imageHero from './hero-2.jpg'
-import imageHero1 from './hero.webp'
-import imageHero2 from './hero-1.jpg'
-import imageFirst from './rumi-1.jpg'
-import imageSecond from './rumi-2.jpg'
+import imageBrand from './brand-rumi.jpg'
+import imageHero from './hero.jpg'
+
+import imageRumi1 from './rumi-1.jpg'
+import imageRumi2 from './rumi-2.jpg'
+import imageRumiF1 from './rumi-f-1.jpg'
+import imageRumiF2 from './rumi-f-2.jpg'
+
 import { InstagramIcon, GoogleIcon } from '@/components/icons.tsx'
 import Image from 'next/image'
 
@@ -18,7 +21,7 @@ export const brand = {
     'Built around good coffee, tea, and conversation, Rumi grew into a daily rhythm for many in the city.',
   ],
   logo,
-  image: { src: imageHero },
+  image: { src: imageBrand },
   date: '2013',
   service: 'True neighborhood café',
   review: {
@@ -47,7 +50,7 @@ export const metadata = {
 }
 
 <div className="max-w-2xl">
-  <Image src={imageFirst} alt="Rumi Deli" />
+  <Image src={imageHero} alt="Rumi Deli" />
 </div>
 
 ## Our Story
@@ -65,7 +68,7 @@ was still uncommon. Rumi brought the quiet charm of sidewalk cafés to Jabal Al 
 offering a space that felt grounded, warm, and quietly elegant.
 
 <div className="max-w-2xl">
-  <Image src={imageSecond} alt="Rumi - Jordan" />
+  <Image src={imageRumi1} alt="Rumi - Jordan" />
 </div>
 
 The vision was never about trends. It was about creating a place where people could gather
@@ -79,7 +82,7 @@ people feel welcome and at ease. Over time, Rumi grew into more than a café. It
 daily rhythm for many and a backdrop for countless shared moments.
 
 <div className="max-w-2xl">
-  <Image src={imageHero} alt="" />
+  <Image src={imageRumi2} alt="" />
 </div>
 
 Coffee and tea are at the heart of the Rumi experience. From Turkish coffee and cardamom
@@ -93,10 +96,6 @@ and intentional, with a selection of Mediterranean and Levantine-inspired dishes
 is made with quality ingredients, prepared simply, and served in a way that invites presence
 and conversation.
 
-<div className="max-w-2xl">
-  <Image src={imageHero1} alt="" />
-</div>
-
 In July 2025, we opened Rumi Deli just steps away from the original café. This space
 expanded Rumi’s identity into the world of artisan baking and specialty sandwiches. The deli
 is built around a central idea: bread as craft. We bake our own loaves daily using natural
@@ -107,6 +106,27 @@ with local white cheese, and labneh with makdoos and olives.
 Rumi remains true to what it set out to be: a place that values good ingredients, thoughtful
 design, and real human connection. A café that continues to evolve while staying rooted in
 the rhythm of the neighborhood.
+
+<div className="grid grid-cols-1 gap-2 align-bottom md:grid-cols-2">
+  <div>
+    <div className="max-w-2xl">
+      <Image
+        src={imageRumiF1}
+        alt="Rumi Café "
+        className="aspect-3/4 object-cover"
+      />
+    </div>
+  </div>
+  <div>
+    <div className="max-w-2xl">
+      <Image
+        src={imageRumiF2}
+        alt="Rumi Café Terrace"
+        className="md:aspect-3/4 md:object-cover"
+      />
+    </div>
+  </div>
+</div>
 
 ## The Spirit of Rumi
 

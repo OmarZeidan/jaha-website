@@ -1,7 +1,14 @@
 import logo from '@/images/logos/oliva-logo.svg'
-import imageHero from './hero.webp'
-import imageFirst from './oliva-front.jpg'
-import imageTeam from './oliva-team.jpg'
+import imageHero from './hero.jpg'
+
+import imageOliva1 from './oliva-1.jpg'
+import imageOliva2 from './oliva-2.jpg'
+import imageOliva3 from './oliva-3.jpg'
+import imageOliva4 from './oliva-4.webp'
+
+import imageOlivaF1 from './oliva-f-1.jpg'
+import imageOlivaF2 from './oliva-f-2.jpg'
+
 import { InstagramIcon, GoogleIcon } from '@/components/icons.tsx'
 import Image from 'next/image'
 
@@ -43,7 +50,7 @@ export const metadata = {
 }
 
 <div className="max-w-2xl">
-  <Image src={imageFirst} alt="Oliva Restaurant" />
+  <Image src={imageHero} alt="Oliva Restaurant" />
 </div>
 
 ## Our Story
@@ -54,16 +61,48 @@ Oliva began with a simple idea: to bring the heart of Italian cooking to Amman w
 
 The space was built around the essentials: an open kitchen centered around a clay pizza oven, and a welcoming dining room with soft light, natural materials, and a communal atmosphere. Guests could see everything happening in front of them, the tossing of pizza dough, the cooking of fresh pastas, the simple layering of salads. Oliva invited people into the process, not just the plate.
 
-From the beginning, the menu reflected Italian sensibilities with Jordanian awareness: thin-crust pizzas topped with original Italian mozzarella, handcrafted sauces made fresh every day, and salads with seasonal vegetables, simple cheeses, and good olive oil. Every dish is generous and straightforward, made from quality ingredients that speak for themselves.
+<div className="max-w-2xl">
+  <Image src={imageOliva2} alt="Oliva Restaurant" />
+</div>
+From the beginning, the menu reflected Italian sensibilities with Jordanian
+awareness: thin-crust pizzas topped with original Italian mozzarella,
+handcrafted sauces made fresh every day, and salads with seasonal vegetables,
+simple cheeses, and good olive oil. Every dish is generous and straightforward,
+made from quality ingredients that speak for themselves.
 
 Over time, Oliva evolved. The menu expanded and deepened, guided by the same principles. We prepare our pizza dough in-house using a slow fermentation process that gives it structure, flavor, and a perfect lightness. Our pasta dishes are built around classic recipes, with sauces and garnishes that highlight quality and balance. The salads shift with the seasons, always built around fresh produce and thoughtful combinations. Starters are simple and balanced. Desserts like tiramisu are made in-house and stay true to timeless flavors.
 
+<div className="max-w-2xl">
+  <Image src={imageOliva3} alt="Oliva Restaurant" />
+</div>
+
 The space reflects the food: modest, grounded, and designed to feel lived in. Wood, open shelving, and warm lighting create a natural flow between kitchen and dining room. The atmosphere is easy but intentional, a place where weekday lunches turn into long conversations, and family dinners feel unhurried and comforting.
+
+<div className="max-w-2xl">
+  <Image src={imageOliva4} alt="Oliva Restaurant" />
+</div>
 
 Oliva remains true to what it set out to be. A place where Italian craft meets local soul. A neighborhood restaurant that does not chase trends but stays focused on what matters. Good food, made well, and shared generously.
 
-<div className="max-w-2xl">
-  <Image src={imageTeam} alt="Oliva Restaurant's Team" />
+<div className="grid grid-cols-1 gap-2 align-bottom md:grid-cols-2">
+  <div>
+    <div className="max-w-2xl">
+      <Image
+        src={imageOlivaF1}
+        alt="Oliva "
+        className="aspect-3/4 object-cover"
+      />
+    </div>
+  </div>
+  <div>
+    <div className="max-w-2xl">
+      <Image
+        src={imageOlivaF2}
+        alt="Oliva"
+        className="md:aspect-3/4 md:object-cover"
+      />
+    </div>
+  </div>
 </div>
 
 ## The Essence of Oliva

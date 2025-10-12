@@ -1,5 +1,5 @@
-import imageServices from '@/images/image-2.webp'
-import imageNCA from '@/images/image-3.webp'
+import imageAbout from '@/images/about-1.jpg'
+import imageAbout2 from '@/images/about-2.jpg'
 import { type Metadata } from 'next'
 import Image from 'next/image'
 
@@ -193,8 +193,8 @@ function CoreBelief() {
       </SectionIntro>
 
       <Image
-        alt=""
-        src={imageServices}
+        alt="About Image - Jaha Website"
+        src={imageAbout}
         className="mt-6 h-full w-full object-cover lg:mt-0"
       />
     </section>
@@ -222,8 +222,8 @@ function NCA() {
       </SectionIntro>
 
       <Image
-        alt=""
-        src={imageNCA}
+        alt="Oliva image - Jaha.co"
+        src={imageAbout2}
         className="mt-6 h-full w-full object-cover lg:mt-0"
       />
     </section>

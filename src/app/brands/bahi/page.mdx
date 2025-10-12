@@ -1,7 +1,10 @@
 import logo from '@/images/logos/bahi-logo.svg'
-import imageHero from './hero.webp'
-import imageFirst from './bahi-3.jpg'
-import imageBahi from './bahi-2.jpg'
+import imageBrand from './brand-bahi.jpg'
+import imageHero from './bahi-hero.jpg'
+
+import imageBahi2 from './bahi-2.jpg'
+import imageBahi3 from './bahi-3.jpg'
+import imageBahi4 from './bahi-4.jpg'
 import { InstagramIcon, GoogleIcon } from '@/components/icons.tsx'
 import Image from 'next/image'
 
@@ -15,7 +18,7 @@ export const brand = {
     'At its center is khader tea — slow-brewed, generous, and made for conversation and pause.',
   ],
   logo,
-  image: { src: imageHero },
+  image: { src: imageBrand },
   date: '2024',
   service: 'Retro Café',
   review: {
@@ -43,7 +46,7 @@ export const metadata = {
 }
 
 <div className="max-w-2xl">
-  <Image src={imageFirst} alt="Bahi Café" />
+  <Image src={imageHero} alt="Bahi Café" />
 </div>
 
 ## Our Story
@@ -57,7 +60,7 @@ The space is inspired by the design sensibilities of the 70s and 80s, with warm 
 The menu is refined yet approachable, focused on comfort, freshness, and familiarity. It includes salads, seasonal soups, omelettes, and sandwiches, all prepared with care and inspired by Levantine flavors. Omelettes are served with arugula and grilled vegetables. Sandwiches are made to order on house baked bread, and salads shift with the produce we enjoy working with.
 
 <div className="max-w-2xl">
-  <Image src={imageHero} alt="Bahi Café" />
+  <Image src={imageBahi2} alt="Bahi Café" />
 </div>
 
 Desserts are rich in memory and texture, drawing on tahini, saffron, and nuts in ways that feel both nostalgic and new. The cake counter features a rotating selection of classics and house favorites, designed to pair naturally with tea or coffee and to linger over.
@@ -66,8 +69,25 @@ The drink menu draws on the classics, placing tea at the center of the café exp
 
 At its core, Bahi is a space to slow down. To gather or to be alone. To read, to talk, or to simply sit with something good. It is a space made for Amman, one that honors the past without losing sight of now.
 
-<div className="max-w-2xl">
-  <Image src={imageBahi} alt="Bahi Café" />
+<div className="grid grid-cols-1 gap-2 align-bottom md:grid-cols-2">
+  <div>
+    <div className="max-w-2xl">
+      <Image
+        src={imageBahi3}
+        alt="Bahi Café"
+        className="aspect-3/4 object-cover"
+      />
+    </div>
+  </div>
+  <div>
+    <div className="max-w-2xl">
+      <Image
+        src={imageBahi4}
+        alt="Bahi Café Third Image"
+        className="md:aspect-3/4 md:object-cover"
+      />
+    </div>
+  </div>
 </div>
 
 ## The Spirit of Bahi
