@@ -24,7 +24,7 @@ export function ContactDetails() {
         <dl className="mt-6 grid grid-cols-1 gap-8 text-sm sm:grid-cols-2">
           {[
             ['Email', 'info@jaha.co', 'mailto'],
-            ['Phone', '+962796754289', 'tel'],
+            ['Phone', '+96264612349', 'tel'],
           ].map(([label, value, type]) => (
             <div key={value}>
               <dt className="font-semibold text-neutral-950">{label}</dt>
