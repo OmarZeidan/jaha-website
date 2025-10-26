@@ -45,13 +45,14 @@ function Brands({ brands }: { brands: Array<MDXEntry<Brand>> }) {
     <>
       <SectionIntro title="A Family of Stories" className="mt-24">
         <p>
-          Whether it’s coffee and conversation at{' '}
-          <span className="font-black text-rumiPrimary"> Rumi</span>, wood-fired
-          pizza at
-          <span className="font-black text-olivaPrimary"> Oliva</span>, or
-          nostalgia at{' '}
+          Whether it is tea and conversation at{' '}
+          <span className="font-black text-rumiPrimary"> Rumi</span>, pizza at
+          <span className="font-black text-olivaPrimary"> Oliva</span>, fresh
+          breads and sandwiches at{' '}
+          <span className="font-black text-rumiPrimary"> Rumi Deli</span>, or the
+          retro charm of{' '}
           <span className="font-black text-bahiPrimary"> Bahi</span>, our brands
-          share one spirit — celebrating culture, community, and presence.{' '}
+          share one spirit: celebrating culture, community, and presence.
         </p>
       </SectionIntro>
       <Container className="mt-16">
@@ -109,10 +110,10 @@ function Services() {
         <p>
           At <strong>Jahangir</strong> for Restaurants Operations and
           Management, we provide full-cycle support for the food and beverage
-          industry in Amman and the region. With more than 15 years of
+          industry in Amman and across the region. With over 15 years of
           experience, we help cafés, restaurants, and hospitality ventures
-          create strong concepts, refine operations, and achieve long-term
-          success.
+          develop strong concepts, refine their operations, and achieve
+          long-term success.
         </p>
       </SectionIntro>
       <Container className="mt-16">
@@ -141,10 +142,10 @@ function Services() {
             <ListItem title="Systems Building and Staff Training">
               We design standard operating procedures and customized training
               programs that equip teams to deliver high-quality service and
-              maintain lasting standards
+              maintain lasting standards.
             </ListItem>
             <ListItem title="Business Turnaround and Growth">
-              We support underperforming businesses with restructuring, cost
+              We support underperforming businesses through restructuring, cost
               control, and strategy updates that restore competitiveness and
               drive growth.
             </ListItem>
@@ -176,10 +177,11 @@ export default async function Home() {
             A leading hospitality company in Amman...
           </h1>
           <p className="mt-6 text-xl text-neutral-600">
-            @<strong>Jahangir</strong>, we specialize in transforming ideas into
-            successful businesses. Our expertise covers the full cycle of food
-            and beverage management, including concept design, menu development,
-            operational systems, staff training, and long-term brand building.
+            At <strong>Jahangir</strong>, we specialize in transforming ideas
+            into successful businesses. Our expertise covers the full cycle of
+            food and beverage management, from concept design and menu
+            development to operational systems, staff training, and long-term
+            brand building.
           </p>
         </FadeIn>
         <FadeIn>

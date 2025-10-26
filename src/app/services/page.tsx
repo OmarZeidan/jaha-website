@@ -78,10 +78,10 @@ function Services() {
             <ListItem title="Systems Building and Staff Training">
               We design standard operating procedures and customized training
               programs that equip teams to deliver high-quality service and
-              maintain lasting standards
+              maintain lasting standards.
             </ListItem>
             <ListItem title="Business Turnaround and Growth">
-              We support underperforming businesses with restructuring, cost
+              We support underperforming businesses through restructuring, cost
               control, and strategy updates that restore competitiveness and
               drive growth.
             </ListItem>
@@ -114,10 +114,10 @@ export default async function OurServices() {
       >
         <p className="text-xl">
           At Jahangir for Restaurants Operations and Management, we provide
-          full-cycle support for the food and beverage industry in Amman and the
-          region. With more than 15 years of experience, we help cafés,
-          restaurants, and hospitality ventures create strong concepts, refine
-          operations, and achieve long-term success.
+          full-cycle support for the food and beverage industry in Amman and
+          across the region. With over 15 years of experience, we help cafés,
+          restaurants, and hospitality ventures develop strong concepts, refine
+          their operations, and achieve long-term success.
         </p>
       </PageIntro>
 

@@ -92,9 +92,9 @@ export default async function Work() {
         title="Brands shaped with intention and care."
       >
         <p>
-          Our work is about more than food and drink — it’s about crafting
-          experiences that feel personal, grounded, and timeless, where design,
-          community, and culture come together to create places people return to
+          Our work goes beyond food and drink; it is about crafting experiences
+          that feel personal, grounded, and timeless, where design, community,
+          and culture come together naturally to create places people return to
           again and again.
         </p>
       </PageIntro>
