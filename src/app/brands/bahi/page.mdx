@@ -48,14 +48,53 @@ export const brand = {
 
 }
 
+export const websiteProfile = brand.profiles.find(
+  (profile) => profile.title === 'Website',
+)
+
 export const metadata = {
   title: `${brand.name}`,
   description: brand.description,
 }
 
-<div className="max-w-2xl">
+<div className="lux-media max-w-2xl">
   <Image src={imageHero} alt="Bahi Café" />
 </div>
+
+{websiteProfile && (
+  <div className="mt-10">
+    <div className="mx-auto max-w-2xl rounded-3xl border border-neutral-900/10 bg-white p-6 shadow-[0_20px_60px_-40px_rgba(0,0,0,0.35)]">
+      <div className="flex flex-col items-start gap-5 sm:flex-row sm:items-center sm:justify-between">
+        <div className="flex items-center gap-4">
+          <span className="inline-flex h-12 w-12 items-center justify-center overflow-hidden rounded-full bg-white ring-1 ring-neutral-900/10">
+            <Image
+              src={brand.logo}
+              alt={`${brand.name} logo`}
+              className="h-8 w-8"
+            />
+          </span>
+          <div>
+            <p className="text-xs uppercase tracking-[0.2em] text-neutral-500">
+              Official website
+            </p>
+            <p className="text-lg font-semibold tracking-tight text-neutral-900">
+              {brand.name}
+            </p>
+          </div>
+        </div>
+        <a
+          href={websiteProfile.href}
+          target="_blank"
+          rel="noreferrer"
+          className="group inline-flex items-center gap-2 rounded-full bg-neutral-900 px-5 py-2 text-sm font-semibold text-white shadow-lg shadow-neutral-900/20 transition hover:-translate-y-0.5 hover:bg-neutral-800"
+        >
+          <span>Visit</span>
+          <ExternalLinkIcon className="h-4 w-4" />
+        </a>
+      </div>
+    </div>
+  </div>
+)}
 
 ## Our Story
 
@@ -67,7 +106,7 @@ The space draws from the design sensibilities of the 70s and 80s, with warm tone
 
 The menu is refined yet approachable, focused on comfort, freshness, and familiarity. It includes salads, seasonal soups, omelettes, and sandwiches, all prepared with care and inspired by Levantine flavors. Omelettes are served with arugula and grilled vegetables, sandwiches are made to order on house-baked bread, and salads shift with the produce we enjoy working with.
 
-<div className="max-w-2xl">
+<div className="lux-media max-w-2xl">
   <Image src={imageBahi2} alt="Bahi Café" />
 </div>
 
@@ -79,7 +118,7 @@ At its core, Bahi is a space to slow down. To gather or to be alone. To read, to
 
 <div className="grid grid-cols-1 gap-2 align-bottom md:grid-cols-2">
   <div>
-    <div className="max-w-2xl">
+    <div className="lux-media max-w-2xl">
       <Image
         src={imageBahi3}
         alt="Bahi Café"
@@ -88,7 +127,7 @@ At its core, Bahi is a space to slow down. To gather or to be alone. To read, to
     </div>
   </div>
   <div>
-    <div className="max-w-2xl">
+    <div className="lux-media max-w-2xl">
       <Image
         src={imageBahi4}
         alt="Bahi Café Third Image"

@@ -57,9 +57,48 @@ export const metadata = {
   description: brand.description,
 }
 
-<div className="max-w-2xl">
+export const websiteProfile = brand.profiles.find(
+  (profile) => profile.title === 'Website',
+)
+
+<div className="lux-media max-w-2xl">
   <Image src={imageHero} alt="Rumi Deli" />
 </div>
+
+{websiteProfile && (
+  <div className="mt-10">
+    <div className="mx-auto max-w-2xl rounded-3xl border border-neutral-900/10 bg-white p-6 shadow-[0_20px_60px_-40px_rgba(0,0,0,0.35)]">
+      <div className="flex flex-col items-start gap-5 sm:flex-row sm:items-center sm:justify-between">
+        <div className="flex items-center gap-4">
+          <span className="inline-flex h-12 w-12 items-center justify-center overflow-hidden rounded-full bg-white ring-1 ring-neutral-900/10">
+            <Image
+              src={brand.logo}
+              alt={`${brand.name} logo`}
+              className="h-8 w-8"
+            />
+          </span>
+          <div>
+            <p className="text-xs uppercase tracking-[0.2em] text-neutral-500">
+              Official website
+            </p>
+            <p className="text-lg font-semibold tracking-tight text-neutral-900">
+              {brand.name}
+            </p>
+          </div>
+        </div>
+        <a
+          href={websiteProfile.href}
+          target="_blank"
+          rel="noreferrer"
+          className="group inline-flex items-center gap-2 rounded-full bg-neutral-900 px-5 py-2 text-sm font-semibold text-white shadow-lg shadow-neutral-900/20 transition hover:-translate-y-0.5 hover:bg-neutral-800"
+        >
+          <span>Visit</span>
+          <ExternalLinkIcon className="h-4 w-4" />
+        </a>
+      </div>
+    </div>
+  </div>
+)}
 
 ## Our Story
 
@@ -80,7 +119,7 @@ exhibitions. Another inside the Abdul Hameed Shoman Library provides readers and
 researchers a calm space for tea, coffee, and reflection. Each location carries the same
 atmosphere of ease and conversation that has defined Rumi from the beginning.
 
-<div className="max-w-2xl">
+<div className="lux-media max-w-2xl">
   <Image src={imageRumi1} alt="Rumi - Jordan" />
 </div>
 
@@ -95,7 +134,7 @@ the creative spirit of the area. The atmosphere was designed to make people feel
 at ease. Over time, Rumi became part of the city’s daily rhythm and a backdrop for countless
 shared moments.
 
-<div className="max-w-2xl">
+<div className="lux-media max-w-2xl">
   <Image src={imageRumi2} alt="" />
 </div>
 
@@ -123,7 +162,7 @@ rhythm of the neighborhood.
 
 <div className="grid grid-cols-1 gap-2 align-bottom md:grid-cols-2">
   <div>
-    <div className="max-w-2xl">
+    <div className="lux-media max-w-2xl">
       <Image
         src={imageRumiF1}
         alt="Rumi Café "
@@ -132,7 +171,7 @@ rhythm of the neighborhood.
     </div>
   </div>
   <div>
-    <div className="max-w-2xl">
+    <div className="lux-media max-w-2xl">
       <Image
         src={imageRumiF2}
         alt="Rumi Café Terrace"

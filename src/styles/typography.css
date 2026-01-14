@@ -182,3 +182,45 @@
     margin-bottom: 0 !important;
   }
 }
+
+.typography.lux-prose {
+  color: var(--color-neutral-900);
+  font-size: var(--text-lg);
+  line-height: var(--text-lg--line-height);
+  letter-spacing: -0.01em;
+}
+
+.typography.lux-prose :where(p) {
+  color: --theme(--color-neutral-700);
+}
+
+.typography.lux-prose :where(h2) {
+  font-size: var(--text-3xl);
+  line-height: var(--text-3xl--line-height);
+  letter-spacing: -0.02em;
+}
+
+.typography.lux-prose :where(h2)::after {
+  content: '';
+  display: block;
+  width: 3rem;
+  height: 1px;
+  margin-top: --spacing(4);
+  background: --theme(--color-neutral-950 / 0.15);
+}
+
+.typography.lux-prose :where(h3) {
+  font-size: var(--text-2xl);
+  line-height: var(--text-2xl--line-height);
+  letter-spacing: -0.015em;
+}
+
+.lux-media {
+  overflow: hidden;
+  border-radius: var(--radius-4xl);
+  background: --theme(--color-neutral-950 / 0.03);
+  border: 1px solid --theme(--color-neutral-950 / 0.08);
+  box-shadow:
+    0 30px 60px -40px rgba(0, 0, 0, 0.35),
+    0 1px 0 rgba(0, 0, 0, 0.04);
+}

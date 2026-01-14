@@ -32,7 +32,7 @@ export function TagListItem({
   return (
     <li
       className={clsx(
-        'inline-flex w-fit rounded-full bg-jahaDark px-4 py-1.5 text-base text-neutral-900',
+        'inline-flex w-fit rounded-full border border-neutral-900/10 bg-white px-4 py-1.5 text-sm font-medium text-neutral-700 shadow-[0_1px_0_rgba(0,0,0,0.04)]',
         className,
       )}
     >

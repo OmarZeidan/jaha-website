@@ -51,14 +51,53 @@ export const brand = {
   ],
 }
 
+export const websiteProfile = brand.profiles.find(
+  (profile) => profile.title === 'Website',
+)
+
 export const metadata = {
   title: `${brand.name}`,
   description: brand.description,
 }
 
-<div className="max-w-2xl">
+<div className="lux-media max-w-2xl">
   <Image src={imageHero} alt="Oliva Restaurant" />
 </div>
+
+{websiteProfile && (
+  <div className="mt-10">
+    <div className="mx-auto max-w-2xl rounded-3xl border border-neutral-900/10 bg-white p-6 shadow-[0_20px_60px_-40px_rgba(0,0,0,0.35)]">
+      <div className="flex flex-col items-start gap-5 sm:flex-row sm:items-center sm:justify-between">
+        <div className="flex items-center gap-4">
+          <span className="inline-flex h-12 w-12 items-center justify-center overflow-hidden rounded-full bg-white ring-1 ring-neutral-900/10">
+            <Image
+              src={brand.logo}
+              alt={`${brand.name} logo`}
+              className="h-8 w-8"
+            />
+          </span>
+          <div>
+            <p className="text-xs uppercase tracking-[0.2em] text-neutral-500">
+              Official website
+            </p>
+            <p className="text-lg font-semibold tracking-tight text-neutral-900">
+              {brand.name}
+            </p>
+          </div>
+        </div>
+        <a
+          href={websiteProfile.href}
+          target="_blank"
+          rel="noreferrer"
+          className="group inline-flex items-center gap-2 rounded-full bg-neutral-900 px-5 py-2 text-sm font-semibold text-white shadow-lg shadow-neutral-900/20 transition hover:-translate-y-0.5 hover:bg-neutral-800"
+        >
+          <span>Visit</span>
+          <ExternalLinkIcon className="h-4 w-4" />
+        </a>
+      </div>
+    </div>
+  </div>
+)}
 
 ## Our Story
 
@@ -68,7 +107,7 @@ Oliva began with a simple idea: to bring the heart of Italian cooking to Amman w
 
 The space was built around the essentials: an open kitchen and a welcoming dining room with soft light, natural materials, and a communal atmosphere. Guests could see everything happening in front of them — the tossing of pizza dough, the finishing of sauces, the simple layering of salads. Oliva invited people into the process, not just the plate.
 
-<div className="max-w-2xl">
+<div className="lux-media max-w-2xl">
   <Image src={imageOliva2} alt="Oliva Restaurant" />
 </div>
 From the beginning, the menu reflected Italian sensibilities with Jordanian
@@ -79,7 +118,7 @@ made from quality ingredients that speak for themselves.
 
 Over time, Oliva evolved. The menu expanded and deepened, guided by the same principles. We prepare our pizza dough in-house using a slow fermentation process that gives it structure, flavor, and lightness. Our pasta dishes are built around classic recipes, with sauces and garnishes that highlight quality and balance. The salads shift with the seasons, always built around fresh produce and thoughtful combinations. Starters are simple and balanced. Desserts like tiramisu are made in-house and stay true to timeless flavors.
 
-<div className="max-w-2xl">
+<div className="lux-media max-w-2xl">
   <Image src={imageOliva3} alt="Oliva Restaurant" />
 </div>
 
@@ -87,7 +126,7 @@ In October 2022, Oliva opened its second location in Shmeisani. The new space br
 
 The space reflects the food: modest, grounded, and designed to feel lived in. Wood, open shelving, and warm lighting create a natural flow between kitchen and dining room. The atmosphere is easy but intentional, a place where weekday lunches turn into long conversations, and family dinners feel unhurried and comforting.
 
-<div className="max-w-2xl">
+<div className="lux-media max-w-2xl">
   <Image src={imageOliva4} alt="Oliva Restaurant" />
 </div>
 
@@ -95,7 +134,7 @@ Oliva remains true to what it set out to be. A place where Italian craft meets l
 
 <div className="grid grid-cols-1 gap-2 align-bottom md:grid-cols-2">
   <div>
-    <div className="max-w-2xl">
+    <div className="lux-media max-w-2xl">
       <Image
         src={imageOlivaF1}
         alt="Oliva "
@@ -104,7 +143,7 @@ Oliva remains true to what it set out to be. A place where Italian craft meets l
     </div>
   </div>
   <div>
-    <div className="max-w-2xl">
+    <div className="lux-media max-w-2xl">
       <Image
         src={imageOlivaF2}
         alt="Oliva"

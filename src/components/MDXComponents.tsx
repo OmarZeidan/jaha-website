@@ -88,7 +88,7 @@ export const MDXComponents = {
     return (
       <div
         className={clsx(
-          '*:mx-auto *:max-w-3xl [&>:first-child]:mt-0! [&>:last-child]:mb-0!',
+          'typography lux-prose *:mx-auto *:max-w-3xl [&>:first-child]:mt-0! [&>:last-child]:mb-0!',
           className,
         )}
         {...props}
