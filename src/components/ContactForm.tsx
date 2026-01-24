@@ -29,6 +29,32 @@ function TextInput({
   )
 }
 
+function HoneypotField() {
+  return (
+    <div
+      aria-hidden="true"
+      style={{
+        position: 'absolute',
+        left: '-9999px',
+        top: '-9999px',
+        opacity: 0,
+        height: 0,
+        overflow: 'hidden',
+        pointerEvents: 'none'
+      }}
+    >
+      <label htmlFor="website">Website</label>
+      <input
+        type="text"
+        id="website"
+        name="website"
+        tabIndex={-1}
+        autoComplete="off"
+      />
+    </div>
+  )
+}
+
 export function ContactForm() {
   const [isSubmitting, setIsSubmitting] = useState(false)
   const [submitMessage, setSubmitMessage] = useState('')
@@ -110,11 +136,12 @@ export function ContactForm() {
         )}
         
         <div className="isolate mt-6 -space-y-px rounded-2xl bg-white/50">
-          <TextInput 
-            label="Name" 
-            name="name" 
-            autoComplete="name" 
-            required 
+          <HoneypotField />
+          <TextInput
+            label="Name"
+            name="name"
+            autoComplete="name"
+            required
           />
           <TextInput
             label="Email"
