@@ -6,22 +6,22 @@ import Image from 'next/image'
 import { ContactSection } from '@/components/ContactSection'
 import { Container } from '@/components/Container'
 import { GridList, GridListItem } from '@/components/GridList'
+import { GridPattern } from '@/components/GridPattern'
 import { PageIntro } from '@/components/PageIntro'
 import { PageLinks } from '@/components/PageLinks'
 import { RootLayout } from '@/components/RootLayout'
 import { SectionIntro } from '@/components/SectionIntro'
 import { loadBrands } from '@/lib/mdx'
-import { GridPattern } from '@/components/GridPattern'
 
 import IconCheckFilled from '@/images/icons/check-filled.svg'
-import IconStar from '@/images/icons/star.svg'
-import IconLeaf from '@/images/icons/leaf.svg'
-import IconUsersGroup from '@/images/icons/users-three-fill.svg'
 import IconFingerPrint from '@/images/icons/fingerprint-fill.svg'
+import IconLeaf from '@/images/icons/leaf.svg'
+import IconStar from '@/images/icons/star.svg'
+import IconUsersGroup from '@/images/icons/users-three-fill.svg'
 
-import logoRumi from '@/images/logo-rumi.svg'
-import logoOliva from '@/images/logo-oliva.svg'
 import logoBahi from '@/images/logo-bahi.svg'
+import logoOliva from '@/images/logo-oliva.svg'
+import logoRumi from '@/images/logo-rumi.svg'
 
 const milestones = [
   {
@@ -77,7 +77,7 @@ const milestones = [
 function Values() {
   return (
     <div className="relative mt-24 pt-24">
-      <div className="absolute inset-x-0 top-0 -z-10 h-[884px] overflow-hidden rounded-t-4xl bg-linear-to-b from-neutral-50">
+      <div className="absolute inset-x-0 top-0 -z-10 h-221 overflow-hidden rounded-t-4xl bg-linear-to-b from-neutral-50">
         <GridPattern
           className="absolute inset-0 h-full w-full mask-[linear-gradient(to_bottom_left,white_40%,transparent_50%)] fill-neutral-100 stroke-neutral-950/5"
           yOffset={-270}
@@ -131,7 +131,7 @@ function Values() {
 function TimeLine() {
   return (
     <div className="relative pt-24">
-      <div className="absolute inset-x-0 top-0 -z-10 h-[1182px] overflow-hidden rounded-t-4xl bg-linear-to-b from-neutral-50">
+      <div className="absolute inset-x-0 top-0 -z-10 h-295.5 overflow-hidden rounded-t-4xl bg-linear-to-b from-neutral-50">
         <GridPattern
           className="absolute inset-0 h-full w-full mask-[linear-gradient(to_bottom_left,white_40%,transparent_50%)] fill-neutral-100 stroke-neutral-950/5"
           yOffset={-270}
@@ -266,8 +266,8 @@ export default async function About() {
             businesses that continue to thrive in a highly competitive market.
           </p>
           <p>
-            With a track record of creating spaces that shape Amman's dining
-            landscape, Jahangir remains committed to delivering memorable
+            With a track record of creating spaces that shape Amman&apos;s
+            dining landscape, Jahangir remains committed to delivering memorable
             experiences while setting benchmarks for hospitality in Jordan.
           </p>
         </div>
@@ -308,7 +308,7 @@ export default async function About() {
                 />
               </div>
               <p className="mt-2 text-sm leading-relaxed text-neutral-600">
-                One of Amman's most iconic destinations for tea and coffee
+                One of Amman&apos;s most iconic destinations for tea and coffee
                 culture, where tradition meets contemporary hospitality.
               </p>
               <div
@@ -406,8 +406,8 @@ export default async function About() {
                 />
               </div>
               <p className="mt-2 text-sm leading-relaxed text-neutral-600">
-                A new concept inspired by the city's golden era of elegance and
-                community, blending nostalgia with modern comfort.
+                A new concept inspired by the city&apos;s golden era of elegance
+                and community, blending nostalgia with modern comfort.
               </p>
               <div
                 className="mt-4 inline-flex items-center text-sm font-medium transition-transform duration-300 group-hover:translate-x-1"
