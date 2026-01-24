@@ -91,56 +91,69 @@ export async function POST(request: NextRequest) {
         <head>
           <meta charset="utf-8">
           <meta name="viewport" content="width=device-width, initial-scale=1.0">
+          <meta name="color-scheme" content="light">
+          <meta name="supported-color-schemes" content="light">
+          <style>
+            :root { color-scheme: light; }
+            @media (prefers-color-scheme: dark) {
+              .email-body, .email-wrapper, .email-container, .card-bg { background-color: #f6f1e4 !important; }
+              .text-dark { color: #171717 !important; }
+              .text-muted { color: #525252 !important; }
+              .text-light { color: #737373 !important; }
+              .link-dark { color: #171717 !important; }
+            }
+          </style>
         </head>
-        <body style="margin: 0; padding: 0; background-color: #f6f1e4; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;">
-          <table role="presentation" width="100%" cellspacing="0" cellpadding="0" style="background: linear-gradient(to right, #ebd7b0, #f6f1e4);">
+        <body class="email-body" style="margin: 0; padding: 0; background-color: #f6f1e4 !important; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; -webkit-font-smoothing: antialiased;">
+          <div style="display: none; max-height: 0; overflow: hidden;">New work inquiry from ${safeName} via Jahangir website</div>
+          <table role="presentation" width="100%" cellspacing="0" cellpadding="0" class="email-wrapper" style="background-color: #f6f1e4 !important;">
             <tr>
               <td style="padding: 40px 20px;">
-                <table role="presentation" width="100%" cellspacing="0" cellpadding="0" style="max-width: 560px; margin: 0 auto;">
+                <table role="presentation" width="100%" cellspacing="0" cellpadding="0" class="email-container" style="max-width: 560px; margin: 0 auto; background-color: #f6f1e4 !important;">
                   <!-- Header -->
                   <tr>
-                    <td style="padding-bottom: 32px; border-bottom: 1px solid rgba(23, 23, 23, 0.1);">
-                      <span style="font-size: 24px; font-weight: 600; color: #171717; letter-spacing: 0.05em;">JAHANGIR.</span>
+                    <td style="padding-bottom: 32px; border-bottom: 1px solid #d4d4d4;">
+                      <span class="text-dark" style="font-size: 24px; font-weight: 600; color: #171717 !important; letter-spacing: 0.05em;">JAHANGIR.</span>
                     </td>
                   </tr>
 
                   <!-- Title -->
                   <tr>
-                    <td style="padding: 40px 0 24px 0;">
-                      <h1 style="margin: 0; font-size: 20px; font-weight: 600; color: #171717;">New Work Inquiry</h1>
-                      <p style="margin: 8px 0 0 0; font-size: 14px; color: #525252;">${new Date().toLocaleDateString('en-US', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' })}</p>
+                    <td style="padding: 40px 0 24px 0; background-color: #f6f1e4 !important;">
+                      <h1 class="text-dark" style="margin: 0; font-size: 20px; font-weight: 600; color: #171717 !important;">New Work Inquiry</h1>
+                      <p class="text-muted" style="margin: 8px 0 0 0; font-size: 14px; color: #525252 !important;">${new Date().toLocaleDateString('en-US', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' })}</p>
                     </td>
                   </tr>
 
                   <!-- Contact Details -->
                   <tr>
-                    <td style="background-color: rgba(255, 255, 255, 0.5); border-radius: 16px; padding: 24px;">
+                    <td class="card-bg" style="background-color: #fffef9 !important; border-radius: 16px; padding: 24px; border: 1px solid #e5e5e5;">
                       <table role="presentation" width="100%" cellspacing="0" cellpadding="0">
                         <tr>
                           <td style="padding-bottom: 16px;">
-                            <span style="font-size: 12px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.1em; color: #525252;">From</span>
-                            <p style="margin: 4px 0 0 0; font-size: 16px; color: #171717; font-weight: 500;">${safeName}</p>
+                            <span class="text-muted" style="font-size: 12px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.1em; color: #525252 !important;">From</span>
+                            <p class="text-dark" style="margin: 4px 0 0 0; font-size: 16px; color: #171717 !important; font-weight: 500;">${safeName}</p>
                           </td>
                         </tr>
                         <tr>
                           <td style="padding-bottom: 16px;">
-                            <span style="font-size: 12px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.1em; color: #525252;">Email</span>
-                            <p style="margin: 4px 0 0 0;"><a href="mailto:${email}" style="font-size: 16px; color: #171717; text-decoration: none;">${email}</a></p>
+                            <span class="text-muted" style="font-size: 12px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.1em; color: #525252 !important;">Email</span>
+                            <p style="margin: 4px 0 0 0;"><a href="mailto:${email}" class="link-dark" style="font-size: 16px; color: #171717 !important; text-decoration: none;">${email}</a></p>
                           </td>
                         </tr>
                         ${safeCompany ? `
                         <tr>
                           <td style="padding-bottom: 16px;">
-                            <span style="font-size: 12px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.1em; color: #525252;">Company</span>
-                            <p style="margin: 4px 0 0 0; font-size: 16px; color: #171717;">${safeCompany}</p>
+                            <span class="text-muted" style="font-size: 12px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.1em; color: #525252 !important;">Company</span>
+                            <p class="text-dark" style="margin: 4px 0 0 0; font-size: 16px; color: #171717 !important;">${safeCompany}</p>
                           </td>
                         </tr>
                         ` : ''}
                         ${safePhone ? `
                         <tr>
                           <td>
-                            <span style="font-size: 12px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.1em; color: #525252;">Phone</span>
-                            <p style="margin: 4px 0 0 0; font-size: 16px; color: #171717;">${safePhone}</p>
+                            <span class="text-muted" style="font-size: 12px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.1em; color: #525252 !important;">Phone</span>
+                            <p class="text-dark" style="margin: 4px 0 0 0; font-size: 16px; color: #171717 !important;">${safePhone}</p>
                           </td>
                         </tr>
                         ` : ''}
@@ -150,16 +163,16 @@ export async function POST(request: NextRequest) {
 
                   <!-- Message -->
                   <tr>
-                    <td style="padding: 24px 0;">
-                      <span style="font-size: 12px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.1em; color: #525252;">Message</span>
-                      <p style="margin: 12px 0 0 0; font-size: 15px; line-height: 1.7; color: #171717; white-space: pre-wrap;">${safeMessage}</p>
+                    <td style="padding: 24px 0; background-color: #f6f1e4 !important;">
+                      <span class="text-muted" style="font-size: 12px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.1em; color: #525252 !important;">Message</span>
+                      <p class="text-dark" style="margin: 12px 0 0 0; font-size: 15px; line-height: 1.7; color: #171717 !important; white-space: pre-wrap;">${safeMessage}</p>
                     </td>
                   </tr>
 
                   <!-- Footer -->
                   <tr>
-                    <td style="padding-top: 32px; border-top: 1px solid rgba(23, 23, 23, 0.1);">
-                      <p style="margin: 0; font-size: 13px; color: #737373;">Reply directly to this email to respond to ${safeName}.</p>
+                    <td style="padding-top: 32px; border-top: 1px solid #d4d4d4; background-color: #f6f1e4 !important;">
+                      <p class="text-light" style="margin: 0; font-size: 13px; color: #737373 !important;">Reply directly to this email to respond to ${safeName}.</p>
                     </td>
                   </tr>
                 </table>
