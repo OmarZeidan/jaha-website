@@ -19,6 +19,10 @@ import IconLeaf from '@/images/icons/leaf.svg'
 import IconUsersGroup from '@/images/icons/users-three-fill.svg'
 import IconFingerPrint from '@/images/icons/fingerprint-fill.svg'
 
+import logoRumi from '@/images/logo-rumi.svg'
+import logoOliva from '@/images/logo-oliva.svg'
+import logoBahi from '@/images/logo-bahi.svg'
+
 const milestones = [
   {
     year: 2011,
@@ -254,15 +258,6 @@ export default async function About() {
         </p>
         <div className="mt-10 max-w-2xl space-y-6 text-base">
           <p>
-            Our portfolio includes Rumi Café, one of Amman’s most iconic
-            destinations for tea and coffee culture; Oliva Italian Restaurant,
-            known for authentic Italian cuisine and a welcoming family
-            atmosphere; and Bahi Café, a new concept inspired by the city’s
-            golden era of elegance and community. Each brand reflects a
-            different story, but all are built on the same foundation of
-            culinary excellence, operational strength, and cultural relevance.
-          </p>
-          <p>
             At Jahangir, we specialize in transforming ideas into successful
             businesses. Our expertise covers the full cycle of food and beverage
             management, including concept design, menu development, operational
@@ -271,12 +266,172 @@ export default async function About() {
             businesses that continue to thrive in a highly competitive market.
           </p>
           <p>
-            With a track record of creating spaces that shape Amman’s dining
+            With a track record of creating spaces that shape Amman's dining
             landscape, Jahangir remains committed to delivering memorable
             experiences while setting benchmarks for hospitality in Jordan.
           </p>
         </div>
       </PageIntro>
+
+      {/* Brand Portfolio Cards */}
+      <Container className="mt-16">
+        <h3 className="text-center text-sm font-semibold tracking-wider text-neutral-500 uppercase">
+          Our Portfolio
+        </h3>
+        <p className="mx-auto mt-2 max-w-2xl text-center text-lg text-neutral-600">
+          Each brand reflects a different story, but all are built on the same
+          foundation of culinary excellence, operational strength, and cultural
+          relevance.
+        </p>
+        <div className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+          {/* Rumi Café Card */}
+          <a
+            href="https://www.rumijordan.com/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="group relative overflow-hidden rounded-2xl bg-white p-6 shadow-sm ring-1 ring-neutral-950/5 transition-all duration-300 hover:-translate-y-1 hover:shadow-xl"
+          >
+            <div
+              className="absolute inset-0 opacity-0 transition-opacity duration-300 group-hover:opacity-100"
+              style={{
+                background:
+                  'linear-gradient(135deg, rgba(139, 99, 57, 0.03) 0%, rgba(139, 99, 57, 0.08) 100%)',
+              }}
+            />
+            <div className="relative">
+              <div className="mb-4 h-10">
+                <Image
+                  src={logoRumi}
+                  alt="Rumi Café"
+                  className="h-full w-auto"
+                  unoptimized
+                />
+              </div>
+              <p className="mt-2 text-sm leading-relaxed text-neutral-600">
+                One of Amman's most iconic destinations for tea and coffee
+                culture, where tradition meets contemporary hospitality.
+              </p>
+              <div
+                className="mt-4 inline-flex items-center text-sm font-medium transition-transform duration-300 group-hover:translate-x-1"
+                style={{ color: '#8b6339' }}
+              >
+                Visit website
+                <svg
+                  className="ml-1 h-4 w-4"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                  strokeWidth={2}
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3"
+                  />
+                </svg>
+              </div>
+            </div>
+          </a>
+
+          {/* Oliva Card */}
+          <a
+            href="https://www.olivajordan.com/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="group relative overflow-hidden rounded-2xl bg-white p-6 shadow-sm ring-1 ring-neutral-950/5 transition-all duration-300 hover:-translate-y-1 hover:shadow-xl"
+          >
+            <div
+              className="absolute inset-0 opacity-0 transition-opacity duration-300 group-hover:opacity-100"
+              style={{
+                background:
+                  'linear-gradient(135deg, rgba(115, 124, 76, 0.03) 0%, rgba(115, 124, 76, 0.08) 100%)',
+              }}
+            />
+            <div className="relative">
+              <div className="mb-4 h-10">
+                <Image
+                  src={logoOliva}
+                  alt="Oliva Italian Restaurant"
+                  className="h-full w-auto"
+                  unoptimized
+                />
+              </div>
+              <p className="mt-2 text-sm leading-relaxed text-neutral-600">
+                Known for authentic Italian cuisine and a welcoming family
+                atmosphere that feels like home.
+              </p>
+              <div
+                className="mt-4 inline-flex items-center text-sm font-medium transition-transform duration-300 group-hover:translate-x-1"
+                style={{ color: '#737c4c' }}
+              >
+                Visit website
+                <svg
+                  className="ml-1 h-4 w-4"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                  strokeWidth={2}
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3"
+                  />
+                </svg>
+              </div>
+            </div>
+          </a>
+
+          {/* Bahi Café Card */}
+          <a
+            href="https://www.bahijordan.com/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="group relative overflow-hidden rounded-2xl bg-white p-6 shadow-sm ring-1 ring-neutral-950/5 transition-all duration-300 hover:-translate-y-1 hover:shadow-xl sm:col-span-2 lg:col-span-1"
+          >
+            <div
+              className="absolute inset-0 opacity-0 transition-opacity duration-300 group-hover:opacity-100"
+              style={{
+                background:
+                  'linear-gradient(135deg, rgba(178, 53, 53, 0.03) 0%, rgba(178, 53, 53, 0.08) 100%)',
+              }}
+            />
+            <div className="relative">
+              <div className="mb-4 h-10">
+                <Image
+                  src={logoBahi}
+                  alt="Bahi Café"
+                  className="h-full w-auto"
+                  unoptimized
+                />
+              </div>
+              <p className="mt-2 text-sm leading-relaxed text-neutral-600">
+                A new concept inspired by the city's golden era of elegance and
+                community, blending nostalgia with modern comfort.
+              </p>
+              <div
+                className="mt-4 inline-flex items-center text-sm font-medium transition-transform duration-300 group-hover:translate-x-1"
+                style={{ color: '#b23535' }}
+              >
+                Visit website
+                <svg
+                  className="ml-1 h-4 w-4"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                  strokeWidth={2}
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3"
+                  />
+                </svg>
+              </div>
+            </div>
+          </a>
+        </div>
+      </Container>
 
       <CoreBelief />
 

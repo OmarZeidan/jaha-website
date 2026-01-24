@@ -13,12 +13,32 @@ import { Testimonial } from '@/components/Testimonial'
 import { Border } from '@/components/Border'
 import { Button } from '@/components/Button'
 import { SocialMedia } from '@/components/SocialMedia'
-import imageAllBrandsLogos from '@/images/all-brands-logos.png'
+import logoRumi from '@/images/logo-rumi.svg'
+import logoBahi from '@/images/logo-bahi.svg'
+import logoOliva from '@/images/logo-oliva.svg'
 import logoJahangir from '@/images/jahangir-logo-english.webp'
 import imageServices from '@/images/rumi-1.jpg'
 import { type Brand, type MDXEntry, loadBrands } from '@/lib/mdx'
 
 function OurBrandsFeatureBox() {
+  const brands = [
+    {
+      name: 'Rumi',
+      logo: logoRumi,
+      url: 'https://rumijordan.com/',
+    },
+    {
+      name: 'Oliva',
+      logo: logoOliva,
+      url: 'https://www.olivajordan.com/',
+    },
+    {
+      name: 'Bahi',
+      logo: logoBahi,
+      url: 'https://bahijordan.com/',
+    },
+  ]
+
   return (
     <div className="relative mt-24 bg-jaha px-6 py-12">
       <Container>
@@ -29,10 +49,27 @@ function OurBrandsFeatureBox() {
         </FadeIn>
         <Border className="mt-6" />
         <FadeInStagger faster>
-          <div className="flex items-center justify-center">
-            <div className="mx-auto mt-16 max-w-2xl">
-              <Image src={imageAllBrandsLogos} alt={'All brands-logos image'} />
-            </div>
+          <div className="mt-16 grid grid-cols-1 gap-4 sm:grid-cols-3 sm:gap-8 lg:gap-12">
+            {brands.map((brand) => (
+              <FadeIn key={brand.name}>
+                <a
+                  href={brand.url}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="group relative flex items-center justify-center rounded-2xl p-6 transition-all duration-300"
+                  aria-label={`Visit ${brand.name} website`}
+                >
+                  <div className="flex h-15 w-full items-center justify-center sm:h-20">
+                    <Image
+                      src={brand.logo}
+                      alt={`${brand.name} logo`}
+                      className="h-full w-auto max-w-full object-contain opacity-75 transition-all duration-300 group-hover:scale-110 group-hover:opacity-100"
+                      unoptimized
+                    />
+                  </div>
+                </a>
+              </FadeIn>
+            ))}
           </div>
         </FadeInStagger>
       </Container>
