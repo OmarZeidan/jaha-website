@@ -22,7 +22,7 @@ function isRateLimited(ip: string | null): boolean {
 function sanitize(input: unknown): string {
   if (typeof input !== 'string') return ''
   return input
-    .replace(/[\u0000-\u001F\u007F]/g, '')
+    .replace(/[\u0000-\u0009\u000B\u000C\u000E-\u001F\u007F]/g, '')
     .replace(/[<>]/g, '')
     .trim()
 }
@@ -63,6 +63,7 @@ export async function POST(request: NextRequest) {
     const safeCompany = sanitize(company)
     const safePhone = sanitize(phone)
     const safeMessage = sanitize(message)
+    const safeMessageHtml = safeMessage.replace(/\n/g, '<br>')
     if (!safeName || !safeMessage) {
       return NextResponse.json({ error: 'Invalid input' }, { status: 400 })
     }
@@ -165,7 +166,7 @@ export async function POST(request: NextRequest) {
                   <tr>
                     <td style="padding: 24px 0; background-color: #f6f1e4 !important;">
                       <span class="text-muted" style="font-size: 12px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.1em; color: #525252 !important;">Message</span>
-                      <p class="text-dark" style="margin: 12px 0 0 0; font-size: 15px; line-height: 1.7; color: #171717 !important; white-space: pre-wrap;">${safeMessage}</p>
+                      <p class="text-dark" style="margin: 12px 0 0 0; font-size: 15px; line-height: 1.7; color: #171717 !important;">${safeMessageHtml}</p>
                     </td>
                   </tr>
 
