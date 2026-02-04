@@ -5,7 +5,6 @@ import Link from 'next/link'
 import { ContactSection } from '@/components/ContactSection'
 import { Container } from '@/components/Container'
 import { FadeIn, FadeInStagger } from '@/components/FadeIn'
-import { List, ListItem } from '@/components/List'
 import { RootLayout } from '@/components/RootLayout'
 import { SectionIntro } from '@/components/SectionIntro'
 import { Testimonial } from '@/components/Testimonial'
@@ -13,10 +12,10 @@ import { Testimonial } from '@/components/Testimonial'
 import { Border } from '@/components/Border'
 import { Button } from '@/components/Button'
 import { SocialMedia } from '@/components/SocialMedia'
-import logoRumi from '@/images/logo-rumi.svg'
+import logoJahangir from '@/images/jahangir-logo-english.webp'
 import logoBahi from '@/images/logo-bahi.svg'
 import logoOliva from '@/images/logo-oliva.svg'
-import logoJahangir from '@/images/jahangir-logo-english.webp'
+import logoRumi from '@/images/logo-rumi.svg'
 import imageServices from '@/images/rumi-1.jpg'
 import { type Brand, type MDXEntry, loadBrands } from '@/lib/mdx'
 
@@ -136,62 +135,82 @@ function Brands({ brands }: { brands: Array<MDXEntry<Brand>> }) {
   )
 }
 
+const servicesTeaser = [
+  {
+    title: 'Concept & Brand',
+    description: 'Positioning, identity, and guest journey.',
+  },
+  {
+    title: 'Operations',
+    description: 'Systems, efficiency, and performance controls.',
+  },
+  {
+    title: 'Technology & Finance',
+    description: 'ERP, reporting, and financial clarity.',
+  },
+  {
+    title: 'People & Culture',
+    description: 'Hiring, training, and high standards.',
+  },
+]
+
 function Services() {
   return (
     <>
-      <SectionIntro
-        eyebrow="Our Services"
-        title="We turn food and beverage concepts into thriving realities."
-        className="mt-24"
-      >
-        <p>
-          At <strong>Jahangir</strong> for Restaurants Operations and
-          Management, we provide full-cycle support for the food and beverage
-          industry in Amman and across the region. With over 15 years of
-          experience, we help cafés, restaurants, and hospitality ventures
-          develop strong concepts, refine their operations, and achieve
-          long-term success.
-        </p>
-      </SectionIntro>
-      <Container className="mt-16">
-        <div className="lg:flex lg:items-center lg:justify-end">
-          <div className="flex justify-center lg:w-1/2 lg:justify-end lg:pr-12">
-            <FadeIn className="w-full flex-none lg:w-120">
+      <div className="mt-24 bg-[linear-gradient(180deg,var(--color-jaha/0.5)_0%,transparent_100%)] pt-2 pb-4">
+        <SectionIntro
+          eyebrow="Our Services"
+          title="A refined service suite for hospitality leaders."
+        >
+          <p className="max-w-xl text-lg leading-relaxed text-neutral-600">
+            Strategic guidance for concepts, operations, people, and performance
+            with a focus on brand integrity and long-term growth.
+          </p>
+        </SectionIntro>
+      </div>
+      <Container className="mt-12 lg:mt-16">
+        <div className="lg:flex lg:items-end lg:justify-between lg:gap-16">
+          <FadeIn className="flex justify-center lg:w-[48%] lg:justify-end">
+            <div className="w-full max-w-md overflow-hidden rounded-[2rem] border border-neutral-200/90 bg-white/80 shadow-[0_32px_64px_-16px_rgba(26,24,20,0.08),0_0_0_1px_rgba(0,0,0,0.02)]">
               <Image
                 src={imageServices}
-                sizes="(min-width: 1024px) 41rem, 31rem"
-                className="justify-center lg:justify-end"
+                sizes="(min-width: 1024px) 41rem, 28rem"
+                className="aspect-[4/5] w-full object-cover"
                 alt=""
               />
+            </div>
+          </FadeIn>
+          <div className="mt-14 lg:mt-0 lg:w-[52%] lg:min-w-0">
+            <FadeIn>
+              <p className="text-base leading-relaxed text-neutral-600">
+                We guide hospitality brands through every stage: concept,
+                operations, technology, and people. Our work balances creative
+                direction with operational rigor, ensuring the brand story,
+                guest experience, and profitability stay aligned as you grow.
+              </p>
+            </FadeIn>
+            <FadeIn className="mt-8 grid gap-y-6 sm:grid-cols-2 sm:gap-x-8">
+              {servicesTeaser.map((item, index) => (
+                <div
+                  key={item.title}
+                  className="group border-l-2 border-rumiPrimary/20 py-3 pr-2 pl-5 transition-colors duration-300 hover:border-rumiPrimary/40"
+                >
+                  <span className="font-display text-2xl font-medium tracking-tight text-rumiPrimary/35 tabular-nums">
+                    {String(index + 1).padStart(2, '0')}
+                  </span>
+                  <h3 className="mt-2 font-display text-lg font-semibold tracking-tight text-neutral-950">
+                    {item.title}
+                  </h3>
+                  <p className="mt-1.5 text-sm leading-relaxed text-neutral-600">
+                    {item.description}
+                  </p>
+                </div>
+              ))}
+            </FadeIn>
+            <FadeIn className="mt-10">
+              <Button href="/services">Explore full services</Button>
             </FadeIn>
           </div>
-          <List className="mt-16 lg:mt-0 lg:w-1/2 lg:min-w-132 lg:pl-4">
-            <ListItem title="Concept Design and Development">
-              We turn ideas into hospitality brands, covering everything from
-              market research and menu planning to design direction and customer
-              journey.
-            </ListItem>
-            <ListItem title="Operational Management">
-              Our team builds and manages systems that improve efficiency,
-              ensure consistency, and secure profitability across day-to-day
-              operations.
-            </ListItem>
-            <ListItem title="Systems Building and Staff Training">
-              We design standard operating procedures and customized training
-              programs that equip teams to deliver high-quality service and
-              maintain lasting standards.
-            </ListItem>
-            <ListItem title="Business Turnaround and Growth">
-              We support underperforming businesses through restructuring, cost
-              control, and strategy updates that restore competitiveness and
-              drive growth.
-            </ListItem>
-            <ListItem title="Brand Expansion">
-              From opening new branches to entering new markets, we guide
-              restaurants and cafés through sustainable scaling and brand
-              development.
-            </ListItem>
-          </List>
         </div>
       </Container>
     </>
