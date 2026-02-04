@@ -5,7 +5,6 @@ import Link from 'next/link'
 import { ContactSection } from '@/components/ContactSection'
 import { Container } from '@/components/Container'
 import { FadeIn, FadeInStagger } from '@/components/FadeIn'
-import { List, ListItem } from '@/components/List'
 import { RootLayout } from '@/components/RootLayout'
 import { SectionIntro } from '@/components/SectionIntro'
 import { Testimonial } from '@/components/Testimonial'
@@ -13,10 +12,10 @@ import { Testimonial } from '@/components/Testimonial'
 import { Border } from '@/components/Border'
 import { Button } from '@/components/Button'
 import { SocialMedia } from '@/components/SocialMedia'
-import logoRumi from '@/images/logo-rumi.svg'
+import logoJahangir from '@/images/jahangir-logo-english.webp'
 import logoBahi from '@/images/logo-bahi.svg'
 import logoOliva from '@/images/logo-oliva.svg'
-import logoJahangir from '@/images/jahangir-logo-english.webp'
+import logoRumi from '@/images/logo-rumi.svg'
 import imageServices from '@/images/rumi-1.jpg'
 import { type Brand, type MDXEntry, loadBrands } from '@/lib/mdx'
 
@@ -141,21 +140,17 @@ function Services() {
     <>
       <SectionIntro
         eyebrow="Our Services"
-        title="We turn food and beverage concepts into thriving realities."
+        title="A refined service suite for hospitality leaders."
         className="mt-24"
       >
         <p>
-          At <strong>Jahangir</strong> for Restaurants Operations and
-          Management, we provide full-cycle support for the food and beverage
-          industry in Amman and across the region. With over 15 years of
-          experience, we help cafés, restaurants, and hospitality ventures
-          develop strong concepts, refine their operations, and achieve
-          long-term success.
+          Strategic guidance for concepts, operations, people, and performance
+          with a focus on brand integrity and long-term growth.
         </p>
       </SectionIntro>
       <Container className="mt-16">
-        <div className="lg:flex lg:items-center lg:justify-end">
-          <div className="flex justify-center lg:w-1/2 lg:justify-end lg:pr-12">
+        <div className="lg:flex lg:items-center lg:justify-between">
+          <div className="flex justify-center lg:w-1/2 lg:justify-start lg:pr-12">
             <FadeIn className="w-full flex-none lg:w-120">
               <Image
                 src={imageServices}
@@ -165,33 +160,55 @@ function Services() {
               />
             </FadeIn>
           </div>
-          <List className="mt-16 lg:mt-0 lg:w-1/2 lg:min-w-132 lg:pl-4">
-            <ListItem title="Concept Design and Development">
-              We turn ideas into hospitality brands, covering everything from
-              market research and menu planning to design direction and customer
-              journey.
-            </ListItem>
-            <ListItem title="Operational Management">
-              Our team builds and manages systems that improve efficiency,
-              ensure consistency, and secure profitability across day-to-day
-              operations.
-            </ListItem>
-            <ListItem title="Systems Building and Staff Training">
-              We design standard operating procedures and customized training
-              programs that equip teams to deliver high-quality service and
-              maintain lasting standards.
-            </ListItem>
-            <ListItem title="Business Turnaround and Growth">
-              We support underperforming businesses through restructuring, cost
-              control, and strategy updates that restore competitiveness and
-              drive growth.
-            </ListItem>
-            <ListItem title="Brand Expansion">
-              From opening new branches to entering new markets, we guide
-              restaurants and cafés through sustainable scaling and brand
-              development.
-            </ListItem>
-          </List>
+          <div className="mt-16 lg:mt-0 lg:w-1/2 lg:min-w-132 lg:pl-4">
+            <FadeIn>
+              <p className="text-base text-black/70">
+                We guide hospitality brands through every stage: concept,
+                operations, technology, and people. Our work balances creative
+                direction with operational rigor, ensuring the brand story,
+                guest experience, and profitability stay aligned as you grow.
+              </p>
+            </FadeIn>
+            <FadeIn className="mt-6 grid gap-4 sm:grid-cols-2">
+              {[
+                {
+                  title: 'Concept & Brand',
+                  description: 'Positioning, identity, and guest journey.',
+                },
+                {
+                  title: 'Operations',
+                  description: 'Systems, efficiency, and performance controls.',
+                },
+                {
+                  title: 'Technology & Finance',
+                  description: 'ERP, reporting, and financial clarity.',
+                },
+                {
+                  title: 'People & Culture',
+                  description: 'Hiring, training, and high standards.',
+                },
+              ].map((item, index) => (
+                <div
+                  key={item.title}
+                  className="rounded-3xl bg-jaha/70 px-5 py-4 ring-1 ring-black/5"
+                >
+                  <div className="flex items-center gap-3 text-xs font-semibold tracking-[0.35em] text-rumiPrimary/70 uppercase">
+                    <span>{String(index + 1).padStart(2, '0')}</span>
+                    <span className="h-px flex-1 bg-black/10" />
+                  </div>
+                  <h3 className="mt-4 font-display text-lg font-semibold text-black">
+                    {item.title}
+                  </h3>
+                  <p className="mt-2 text-sm text-black/70">
+                    {item.description}
+                  </p>
+                </div>
+              ))}
+            </FadeIn>
+            <FadeIn className="mt-8">
+              <Button href="/services">Explore full services</Button>
+            </FadeIn>
+          </div>
         </div>
       </Container>
     </>
