@@ -135,77 +135,79 @@ function Brands({ brands }: { brands: Array<MDXEntry<Brand>> }) {
   )
 }
 
+const servicesTeaser = [
+  {
+    title: 'Concept & Brand',
+    description: 'Positioning, identity, and guest journey.',
+  },
+  {
+    title: 'Operations',
+    description: 'Systems, efficiency, and performance controls.',
+  },
+  {
+    title: 'Technology & Finance',
+    description: 'ERP, reporting, and financial clarity.',
+  },
+  {
+    title: 'People & Culture',
+    description: 'Hiring, training, and high standards.',
+  },
+]
+
 function Services() {
   return (
     <>
-      <SectionIntro
-        eyebrow="Our Services"
-        title="A refined service suite for hospitality leaders."
-        className="mt-24"
-      >
-        <p>
-          Strategic guidance for concepts, operations, people, and performance
-          with a focus on brand integrity and long-term growth.
-        </p>
-      </SectionIntro>
-      <Container className="mt-16">
-        <div className="lg:flex lg:items-center lg:justify-between">
-          <div className="flex justify-center lg:w-1/2 lg:justify-start lg:pr-12">
-            <FadeIn className="w-full flex-none lg:w-120">
+      <div className="mt-24 bg-[linear-gradient(180deg,var(--color-jaha/0.5)_0%,transparent_100%)] pt-2 pb-4">
+        <SectionIntro
+          eyebrow="Our Services"
+          title="A refined service suite for hospitality leaders."
+        >
+          <p className="max-w-xl text-lg leading-relaxed text-neutral-600">
+            Strategic guidance for concepts, operations, people, and performance
+            with a focus on brand integrity and long-term growth.
+          </p>
+        </SectionIntro>
+      </div>
+      <Container className="mt-12 lg:mt-16">
+        <div className="lg:flex lg:items-end lg:justify-between lg:gap-16">
+          <FadeIn className="flex justify-center lg:w-[48%] lg:justify-end">
+            <div className="w-full max-w-md overflow-hidden rounded-[2rem] border border-neutral-200/90 bg-white/80 shadow-[0_32px_64px_-16px_rgba(26,24,20,0.08),0_0_0_1px_rgba(0,0,0,0.02)]">
               <Image
                 src={imageServices}
-                sizes="(min-width: 1024px) 41rem, 31rem"
-                className="justify-center lg:justify-end"
+                sizes="(min-width: 1024px) 41rem, 28rem"
+                className="aspect-[4/5] w-full object-cover"
                 alt=""
               />
-            </FadeIn>
-          </div>
-          <div className="mt-16 lg:mt-0 lg:w-1/2 lg:min-w-132 lg:pl-4">
+            </div>
+          </FadeIn>
+          <div className="mt-14 lg:mt-0 lg:w-[52%] lg:min-w-0">
             <FadeIn>
-              <p className="text-base text-black/70">
+              <p className="text-base leading-relaxed text-neutral-600">
                 We guide hospitality brands through every stage: concept,
                 operations, technology, and people. Our work balances creative
                 direction with operational rigor, ensuring the brand story,
                 guest experience, and profitability stay aligned as you grow.
               </p>
             </FadeIn>
-            <FadeIn className="mt-6 grid gap-4 sm:grid-cols-2">
-              {[
-                {
-                  title: 'Concept & Brand',
-                  description: 'Positioning, identity, and guest journey.',
-                },
-                {
-                  title: 'Operations',
-                  description: 'Systems, efficiency, and performance controls.',
-                },
-                {
-                  title: 'Technology & Finance',
-                  description: 'ERP, reporting, and financial clarity.',
-                },
-                {
-                  title: 'People & Culture',
-                  description: 'Hiring, training, and high standards.',
-                },
-              ].map((item, index) => (
+            <FadeIn className="mt-8 grid gap-y-6 sm:grid-cols-2 sm:gap-x-8">
+              {servicesTeaser.map((item, index) => (
                 <div
                   key={item.title}
-                  className="rounded-3xl bg-jaha/70 px-5 py-4 ring-1 ring-black/5"
+                  className="group border-l-2 border-rumiPrimary/20 py-3 pr-2 pl-5 transition-colors duration-300 hover:border-rumiPrimary/40"
                 >
-                  <div className="flex items-center gap-3 text-xs font-semibold tracking-[0.35em] text-rumiPrimary/70 uppercase">
-                    <span>{String(index + 1).padStart(2, '0')}</span>
-                    <span className="h-px flex-1 bg-black/10" />
-                  </div>
-                  <h3 className="mt-4 font-display text-lg font-semibold text-black">
+                  <span className="font-display text-2xl font-medium tracking-tight text-rumiPrimary/35 tabular-nums">
+                    {String(index + 1).padStart(2, '0')}
+                  </span>
+                  <h3 className="mt-2 font-display text-lg font-semibold tracking-tight text-neutral-950">
                     {item.title}
                   </h3>
-                  <p className="mt-2 text-sm text-black/70">
+                  <p className="mt-1.5 text-sm leading-relaxed text-neutral-600">
                     {item.description}
                   </p>
                 </div>
               ))}
             </FadeIn>
-            <FadeIn className="mt-8">
+            <FadeIn className="mt-10">
               <Button href="/services">Explore full services</Button>
             </FadeIn>
           </div>
