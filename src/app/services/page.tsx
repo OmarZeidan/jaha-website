@@ -142,78 +142,82 @@ function Culture() {
 function Services() {
   return (
     <>
-      <Container className="mt-12 lg:mt-24">
-        <div className="grid gap-10 lg:grid-cols-[1.1fr_0.9fr] lg:items-center lg:pt-8">
-          <SectionIntro
-            eyebrow="Service architecture"
-            title="Designed as chapters, delivered as a full experience."
-          >
-            <p>
-              From first concept to mature operations, we organize our services
-              into focused chapters. Each one is designed to elevate quality,
-              sharpen performance, and protect your brand as it scales.
-            </p>
-          </SectionIntro>
-          <FadeIn className="mx-auto w-full max-w-xl">
-            <div className="relative">
-              <div className="absolute -top-10 -right-10 h-40 w-40 rounded-full bg-jahaDark/50 blur-3xl" />
-              <div className="absolute -bottom-10 -left-10 h-40 w-40 rounded-full bg-jaha/70 blur-3xl" />
-              <div className="relative overflow-hidden rounded-[2.75rem] border border-black/10 bg-white/70 p-3">
-                <div className="relative overflow-hidden rounded-[2.25rem]">
+      {/* Hero: editorial lux band */}
+      <div className="mt-16 bg-[linear-gradient(180deg,var(--color-jaha)_0%,var(--color-jaha/0.4)_50%,transparent_100%)] pt-2 pb-20 lg:mt-28 lg:pb-28">
+        <Container>
+          <div className="grid gap-14 lg:grid-cols-[1.05fr_0.95fr] lg:items-end lg:gap-20">
+            <SectionIntro
+              eyebrow="Service architecture"
+              title="Designed as chapters, delivered as a full experience."
+            >
+              <p className="max-w-xl text-lg leading-relaxed text-neutral-600">
+                From first concept to mature operations, we organize our
+                services into focused chapters. Each one is designed to elevate
+                quality, sharpen performance, and protect your brand as it
+                scales.
+              </p>
+            </SectionIntro>
+            <FadeIn className="mx-auto w-full max-w-[28rem] lg:max-w-none">
+              <div className="overflow-hidden rounded-[2rem] border border-neutral-200/90 bg-white/80 shadow-[0_32px_64px_-16px_rgba(26,24,20,0.08),0_0_0_1px_rgba(0,0,0,0.02)]">
+                <div className="relative aspect-[4/5] min-h-[380px]">
                   <Image
                     src={imageServices}
-                    sizes="(min-width: 1024px) 36rem, 26rem"
-                    className="h-[420px] w-full object-cover"
+                    sizes="(min-width: 1024px) 42rem, 28rem"
+                    className="h-full w-full object-cover"
                     alt=""
                   />
-                  <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/45 via-black/10 to-transparent" />
-                  <div className="absolute right-0 bottom-0 left-0 p-6 text-white">
-                    <p className="text-xs tracking-[0.35em] text-white/70 uppercase">
+                  <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent" />
+                  <div className="absolute right-0 bottom-0 left-0 p-8 text-white">
+                    <p className="text-[11px] font-medium tracking-[0.32em] text-white/80 uppercase">
                       Jahangir Services
                     </p>
-                    <p className="mt-2 text-lg font-semibold">
+                    <p className="mt-3 text-lg font-medium tracking-tight text-white/95">
                       Curated hospitality experiences, built to last.
                     </p>
                   </div>
                 </div>
               </div>
-            </div>
-          </FadeIn>
-        </div>
-      </Container>
+            </FadeIn>
+          </div>
+        </Container>
+      </div>
 
-      <Container className="mt-16">
-        <div className="grid gap-8 lg:grid-cols-2">
+      {/* Chapters: calm cards, subtle structure */}
+      <Container className="mt-6 lg:mt-0">
+        <div className="grid gap-12 lg:grid-cols-2 lg:gap-x-14 lg:gap-y-16">
           {serviceChapters.map((chapter, index) => (
             <FadeIn key={chapter.title}>
-              <div className="relative h-full overflow-hidden rounded-4xl bg-white/70 shadow-[0_10px_24px_rgba(26,24,20,0.06)] ring-1 ring-black/5">
-                <div className="absolute -top-12 -left-10 h-32 w-32 rounded-full bg-jaha/60 blur-3xl" />
-                <div className="relative p-8 sm:p-10">
-                  <div className="flex items-center gap-4 text-xs font-semibold tracking-[0.35em] text-rumiPrimary/70 uppercase">
-                    <span>{String(index + 1).padStart(2, '0')}</span>
-                    <span className="h-px flex-1 bg-black/10" />
+              <article className="relative h-full rounded-[1.75rem] border border-neutral-200/80 bg-white/90 p-10 shadow-[0_24px_48px_-12px_rgba(26,24,20,0.06)] sm:p-12">
+                <header>
+                  <div className="flex items-baseline gap-4">
+                    <span className="font-display text-[2.5rem] font-medium tracking-tight text-rumiPrimary/35 tabular-nums">
+                      {String(index + 1).padStart(2, '0')}
+                    </span>
+                    <span className="h-px min-w-0 flex-1 self-center bg-neutral-200/90" />
                   </div>
-                  <h3 className="mt-5 font-display text-2xl font-semibold text-black">
+                  <h3 className="mt-6 font-display text-2xl font-semibold tracking-tight text-neutral-950 sm:text-[1.75rem]">
                     {chapter.title}
                   </h3>
-                  <p className="mt-3 text-sm text-black/70">{chapter.lead}</p>
-                  <div className="mt-8 grid gap-4">
-                    {chapter.items.map((item) => (
-                      <div
-                        key={item.title}
-                        className="rounded-3xl border border-black/5 bg-jaha/70 px-5 py-4"
-                      >
-                        <p className="text-base font-semibold text-black">
-                          {item.title}
-                        </p>
-                        <p className="mt-2 text-sm text-black/70">
-                          {item.description}
-                        </p>
-                      </div>
-                    ))}
-                  </div>
-                </div>
-              </div>
+                  <p className="mt-4 text-base leading-relaxed text-neutral-600">
+                    {chapter.lead}
+                  </p>
+                </header>
+                <ul className="mt-10 space-y-0">
+                  {chapter.items.map((item) => (
+                    <li
+                      key={item.title}
+                      className="group border-l-2 border-rumiPrimary/20 py-4 pl-6 transition-colors duration-300 first:pt-0 last:pb-0 hover:border-rumiPrimary/40"
+                    >
+                      <p className="text-[0.9375rem] font-semibold tracking-tight text-neutral-950">
+                        {item.title}
+                      </p>
+                      <p className="mt-1.5 text-sm leading-relaxed text-neutral-600">
+                        {item.description}
+                      </p>
+                    </li>
+                  ))}
+                </ul>
+              </article>
             </FadeIn>
           ))}
         </div>
