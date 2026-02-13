@@ -102,6 +102,32 @@ const serviceChapters = [
       },
     ],
   },
+  {
+    title: 'Maintenance Management',
+    lead: 'We protect continuity through disciplined upkeep and proactive facility oversight.',
+    items: [
+      {
+        title: 'Site Routine Inspections',
+        description:
+          'Conducting scheduled site walkthroughs to identify potential issues early, ensure operational readiness, and maintain overall facility standards.',
+      },
+      {
+        title: 'Light Maintenance Services',
+        description:
+          'Performing minor repairs and corrective works to prevent disruptions and maintain smooth daily operations.',
+      },
+      {
+        title: 'Spare Parts Replacement',
+        description:
+          'Managing the replacement of damaged or worn components to ensure equipment reliability and operational continuity.',
+      },
+      {
+        title: 'Major Maintenance Supervision',
+        description:
+          'Overseeing essential and large-scale maintenance works to ensure quality execution, compliance with standards, and minimal operational downtime.',
+      },
+    ],
+  },
 ]
 
 function Culture() {
@@ -186,7 +212,14 @@ function Services() {
       <Container className="mt-6 lg:mt-0">
         <div className="grid gap-12 lg:grid-cols-2 lg:gap-x-14 lg:gap-y-16">
           {serviceChapters.map((chapter, index) => (
-            <FadeIn key={chapter.title}>
+            <FadeIn
+              key={chapter.title}
+              className={
+                index === serviceChapters.length - 1
+                  ? 'lg:col-span-2 lg:mx-auto lg:w-full lg:max-w-4xl'
+                  : undefined
+              }
+            >
               <article className="relative h-full rounded-[1.75rem] border border-neutral-200/80 bg-white/90 p-10 shadow-[0_24px_48px_-12px_rgba(26,24,20,0.06)] sm:p-12">
                 <header>
                   <div className="flex items-baseline gap-4">

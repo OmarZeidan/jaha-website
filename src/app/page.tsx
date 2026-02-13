@@ -152,6 +152,10 @@ const servicesTeaser = [
     title: 'People & Culture',
     description: 'Hiring, training, and high standards.',
   },
+  {
+    title: 'Maintenance',
+    description: 'Inspections, repairs, and continuity planning.',
+  },
 ]
 
 function Services() {
@@ -163,8 +167,9 @@ function Services() {
           title="A refined service suite for hospitality leaders."
         >
           <p className="max-w-xl text-lg leading-relaxed text-neutral-600">
-            Strategic guidance for concepts, operations, people, and performance
-            with a focus on brand integrity and long-term growth.
+            Strategic guidance for concepts, operations, people, performance,
+            and maintenance with a focus on brand integrity and long-term
+            growth.
           </p>
         </SectionIntro>
       </div>
@@ -184,9 +189,10 @@ function Services() {
             <FadeIn>
               <p className="text-base leading-relaxed text-neutral-600">
                 We guide hospitality brands through every stage: concept,
-                operations, technology, and people. Our work balances creative
-                direction with operational rigor, ensuring the brand story,
-                guest experience, and profitability stay aligned as you grow.
+                operations, technology, people, and maintenance. Our work
+                balances creative direction with operational rigor, ensuring the
+                brand story, guest experience, and profitability stay aligned as
+                you grow.
               </p>
             </FadeIn>
             <FadeIn className="mt-8 grid gap-y-6 sm:grid-cols-2 sm:gap-x-8">
