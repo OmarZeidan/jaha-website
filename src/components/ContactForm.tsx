@@ -84,6 +84,7 @@ export function ContactForm() {
   const [isSubmitting, setIsSubmitting] = useState(false)
   const [submitMessage, setSubmitMessage] = useState('')
   const [isSuccess, setIsSuccess] = useState(false)
+  const [formStartedAt] = useState(() => String(Date.now()))
 
   async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault()
@@ -100,6 +101,8 @@ export function ContactForm() {
       company: formData.get('company'),
       phone: formData.get('phone'),
       message: formData.get('message'),
+      website: formData.get('website'),
+      formStartedAt: formData.get('formStartedAt'),
     }
 
     try {
@@ -112,9 +115,6 @@ export function ContactForm() {
       })
 
       const result = await response.json()
-      console.log('Response status:', response.status)
-      console.log('Response result:', result)
-
       if (response.ok && result.success) {
         setSubmitMessage('Thank you! Your message has been sent successfully.')
         setIsSuccess(true)
@@ -182,6 +182,7 @@ export function ContactForm() {
 
         <div className="isolate mt-6 -space-y-px rounded-2xl bg-white/50">
           <HoneypotField />
+          <input type="hidden" name="formStartedAt" value={formStartedAt} />
           <TextInput label="Name" name="name" autoComplete="name" required />
           <TextInput
             label="Email"

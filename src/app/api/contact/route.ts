@@ -6,6 +6,11 @@ export const runtime = 'nodejs'
 // Simple in-memory rate limiter (per IP) for basic abuse protection
 const RATE_LIMIT_WINDOW_MS = 60_000
 const RATE_LIMIT_MAX = 5
+const MIN_SUBMISSION_TIME_MS = 4_000
+const MAX_NAME_LENGTH = 100
+const MAX_COMPANY_LENGTH = 120
+const MAX_PHONE_LENGTH = 30
+const MAX_MESSAGE_LENGTH = 4_000
 const ipToTimestamps = new Map<string, number[]>()
 
 function isRateLimited(ip: string | null): boolean {
@@ -27,6 +32,20 @@ function sanitize(input: unknown): string {
     .trim()
 }
 
+function silentlyAcceptSpam() {
+  return NextResponse.json({ success: true, message: 'Message received' })
+}
+
+function parseTimestamp(value: unknown): number | null {
+  if (typeof value !== 'string') return null
+  const parsed = Number(value)
+  return Number.isFinite(parsed) ? parsed : null
+}
+
+function isSuspiciousSingleToken(value: string, minLength: number) {
+  return value.length >= minLength && !/\s/.test(value)
+}
+
 export async function POST(request: NextRequest) {
   try {
     const ip =
@@ -38,12 +57,18 @@ export async function POST(request: NextRequest) {
     }
 
     // Enforce JSON and size limits implicitly handled by Next, parse body
-    const { name, email, company, phone, message, website } = await request.json()
+    const { name, email, company, phone, message, website, formStartedAt } = await request.json()
 
     // Bot detection: honeypot field should be empty
     if (website) {
       // Silently reject bot submissions (return success to not tip off bots)
-      return NextResponse.json({ success: true, message: 'Message received' })
+      return silentlyAcceptSpam()
+    }
+
+    // Most human users won't submit in under a few seconds.
+    const startedAt = parseTimestamp(formStartedAt)
+    if (startedAt && Date.now() - startedAt < MIN_SUBMISSION_TIME_MS) {
+      return silentlyAcceptSpam()
     }
     
     // Validate required fields
@@ -55,17 +80,50 @@ export async function POST(request: NextRequest) {
     }
 
     // Basic format checks
-    const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
-    if (!emailPattern.test(String(email))) {
-      return NextResponse.json({ error: 'Please provide a valid email address' }, { status: 400 })
-    }
     const safeName = sanitize(name)
+    const safeEmail = sanitize(email).toLowerCase()
     const safeCompany = sanitize(company)
     const safePhone = sanitize(phone)
     const safeMessage = sanitize(message)
     const safeMessageHtml = safeMessage.replace(/\n/g, '<br>')
+
+    const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/
+    if (!emailPattern.test(safeEmail)) {
+      return NextResponse.json({ error: 'Please provide a valid email address' }, { status: 400 })
+    }
+
     if (!safeName || !safeMessage) {
       return NextResponse.json({ error: 'Invalid input' }, { status: 400 })
+    }
+
+    if (
+      safeName.length > MAX_NAME_LENGTH ||
+      safeCompany.length > MAX_COMPANY_LENGTH ||
+      safePhone.length > MAX_PHONE_LENGTH ||
+      safeMessage.length > MAX_MESSAGE_LENGTH
+    ) {
+      return NextResponse.json({ error: 'Input exceeds allowed length' }, { status: 400 })
+    }
+
+    if (safeMessage.length < 10) {
+      return NextResponse.json({ error: 'Please provide a bit more detail in your message' }, { status: 400 })
+    }
+
+    if (!/[a-zA-Z]/.test(safeName)) {
+      return NextResponse.json({ error: 'Please provide a valid name' }, { status: 400 })
+    }
+
+    const phoneDigits = safePhone.replace(/\D/g, '')
+    if (safePhone && (phoneDigits.length < 7 || phoneDigits.length > 15)) {
+      return NextResponse.json({ error: 'Please provide a valid phone number' }, { status: 400 })
+    }
+
+    // Silently drop high-probability bot payloads.
+    if (
+      isSuspiciousSingleToken(safeName, 18) ||
+      (safeCompany && isSuspiciousSingleToken(safeCompany, 24))
+    ) {
+      return silentlyAcceptSpam()
     }
     
     // Create email transporter
@@ -83,7 +141,7 @@ export async function POST(request: NextRequest) {
     // Email content - styled to match Jahangir website
     const mailOptions = {
       from: `"JAHANGIR." <${process.env.EMAIL_USER}>`,
-      replyTo: email,
+      replyTo: safeEmail,
       to: recipients,
       subject: `New inquiry from ${safeName}`,
       html: `
@@ -139,7 +197,7 @@ export async function POST(request: NextRequest) {
                         <tr>
                           <td style="padding-bottom: 16px;">
                             <span class="text-muted" style="font-size: 12px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.1em; color: #525252 !important;">Email</span>
-                            <p style="margin: 4px 0 0 0;"><a href="mailto:${email}" class="link-dark" style="font-size: 16px; color: #171717 !important; text-decoration: none;">${email}</a></p>
+                            <p style="margin: 4px 0 0 0;"><a href="mailto:${safeEmail}" class="link-dark" style="font-size: 16px; color: #171717 !important; text-decoration: none;">${safeEmail}</a></p>
                           </td>
                         </tr>
                         ${safeCompany ? `
@@ -193,7 +251,7 @@ export async function POST(request: NextRequest) {
       await transporter.sendMail({
         ...mailOptions,
         html: undefined,
-        text: `JAHANGIR.\n${'─'.repeat(40)}\n\nNew Work Inquiry\n${new Date().toLocaleDateString('en-US', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' })}\n\nFrom: ${safeName}\nEmail: ${email}${safeCompany ? `\nCompany: ${safeCompany}` : ''}${safePhone ? `\nPhone: ${safePhone}` : ''}\n\nMessage:\n${safeMessage}\n\n${'─'.repeat(40)}\nReply directly to this email to respond to ${safeName}.`,
+        text: `JAHANGIR.\n${'─'.repeat(40)}\n\nNew Work Inquiry\n${new Date().toLocaleDateString('en-US', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' })}\n\nFrom: ${safeName}\nEmail: ${safeEmail}${safeCompany ? `\nCompany: ${safeCompany}` : ''}${safePhone ? `\nPhone: ${safePhone}` : ''}\n\nMessage:\n${safeMessage}\n\n${'─'.repeat(40)}\nReply directly to this email to respond to ${safeName}.`,
       })
     }
     
