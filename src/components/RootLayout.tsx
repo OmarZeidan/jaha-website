@@ -104,7 +104,7 @@ function Header({
 
 function NavigationRow({ children }: { children: React.ReactNode }) {
   return (
-    <div className="even:mt-px sm:bg-neutral-950">
+    <div className="mt-px first:mt-0 sm:bg-neutral-950">
       <Container>
         <div className="grid grid-cols-1 sm:grid-cols-2">{children}</div>
       </Container>
@@ -115,14 +115,19 @@ function NavigationRow({ children }: { children: React.ReactNode }) {
 function NavigationItem({
   href,
   children,
+  className,
 }: {
   href: string
   children: React.ReactNode
+  className?: string
 }) {
   return (
     <Link
       href={href}
-      className="group relative isolate -mx-6 bg-neutral-950 px-6 py-10 even:mt-px sm:mx-0 sm:px-0 sm:py-16 sm:odd:pr-16 sm:even:mt-0 sm:even:border-l sm:even:border-neutral-800 sm:even:pl-16"
+      className={clsx(
+        'group relative isolate -mx-6 bg-neutral-950 px-6 py-10 even:mt-px sm:mx-0 sm:px-0 sm:py-16 sm:odd:pr-16 sm:even:mt-0 sm:even:border-l sm:even:border-neutral-800 sm:even:pl-16',
+        className,
+      )}
     >
       {children}
       <span className="absolute inset-y-0 -z-10 w-screen bg-neutral-900 opacity-0 transition group-odd:right-0 group-even:left-0 group-hover:opacity-100" />
@@ -139,7 +144,12 @@ function Navigation() {
       </NavigationRow>
       <NavigationRow>
         <NavigationItem href="/services">Our Services</NavigationItem>
-        <NavigationItem href="/contact">Contact Us</NavigationItem>
+        <NavigationItem href="/jobs">Jobs</NavigationItem>
+      </NavigationRow>
+      <NavigationRow>
+        <NavigationItem href="/contact" className="sm:col-span-2 sm:pr-16">
+          Contact Us
+        </NavigationItem>
       </NavigationRow>
     </nav>
   )
