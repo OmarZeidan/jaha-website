@@ -5,6 +5,7 @@ import { Container } from '@/components/Container'
 import { FadeIn } from '@/components/FadeIn'
 import { PageIntro } from '@/components/PageIntro'
 import { RootLayout } from '@/components/RootLayout'
+import { SectionIntro } from '@/components/SectionIntro'
 
 const jobsUrl =
   'https://hunt.kayanhr.com/CareerSite/Index/YUNoMVZuNWxXa24xRXksY2xkaGVVUmhXV3BGWkZWdWQxQjBZbFJQYWtGRFVUMDk%3D'
@@ -38,13 +39,25 @@ export default function JobsPage() {
     <RootLayout>
       <PageIntro
         eyebrow="Jobs"
-        title="Join us in shaping memorable hospitality experiences."
+        title="Come Work With Us"
       >
-        <p className="text-xl">
-          We are always looking for thoughtful, dedicated people who care about
-          quality, culture, and creating places guests return to again and
-          again.
+        <p className="text-xl leading-relaxed">
+          Jahangir Restaurant Management and Operation Company was established
+          in 2011 and is a leading Jordanian company in the food and beverage
+          sector. We are known for innovation, high-quality service, and a
+          commitment to creating exceptional dining experiences.
         </p>
+        <div className="mt-8 max-w-3xl space-y-6 text-base leading-relaxed text-neutral-600">
+          <p>
+            Alongside our guest experience, we focus on developing the work
+            environment and supporting young Jordanians through training and
+            qualification opportunities.
+          </p>
+          <p>
+            Jahangir is home to Oliva Pizza &amp; Pasta, Rumi Cafe, Bahi, and
+            our own Central Kitchen.
+          </p>
+        </div>
       </PageIntro>
 
       <Container className="mt-16 sm:mt-20 lg:mt-24">
@@ -61,6 +74,40 @@ export default function JobsPage() {
                   <ArrowUpRightIcon className="h-4 w-4" />
                 </span>
               </Button>
+            </div>
+          </div>
+        </FadeIn>
+      </Container>
+
+      <SectionIntro
+        className="mt-16 sm:mt-20 lg:mt-24"
+        eyebrow="Our Culture"
+        title="The Workplace & People"
+      >
+        <p className="text-lg leading-relaxed">
+          With a team of dedicated individuals, Jahangir&apos;s success is
+          powered by its people. We invest heavily in training, providing an
+          average of 200 hours of hands-on experience for every new hire.
+        </p>
+      </SectionIntro>
+
+      <Container className="mt-10">
+        <FadeIn>
+          <div className="max-w-4xl rounded-3xl bg-neutral-50 px-8 py-10 ring-1 ring-neutral-950/5 sm:px-10">
+            <div className="space-y-6 text-base leading-relaxed text-neutral-600">
+              <p>
+                By fostering a collaborative and growth-oriented environment,
+                Jahangir ensures its employees thrive while contributing to its
+                mission. Each person brings something special to the table,
+                from our kitchen staff to our operations managers to our
+                community engagement champions.
+              </p>
+              <p>
+                Together, we work seamlessly to make every experience
+                extraordinary. And with a team that is 100% Jordanian, we are
+                proud to support local talent, create opportunities, and build
+                a workforce that reflects the spirit of our country.
+              </p>
             </div>
           </div>
         </FadeIn>
