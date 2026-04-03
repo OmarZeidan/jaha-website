@@ -28,7 +28,7 @@ function ArrowUpRightIcon(props: React.ComponentPropsWithoutRef<'svg'>) {
 export const metadata: Metadata = {
   title: 'Jobs',
   description:
-    'Explore career opportunities at Jahangir and view our latest openings on our hiring platform.',
+    'Explore career opportunities across Oliva, Rumi Cafe & Deli, Bahi, and Jahangir’s Central Kitchen.',
   alternates: {
     canonical: '/jobs',
   },
@@ -37,25 +37,17 @@ export const metadata: Metadata = {
 export default function JobsPage() {
   return (
     <RootLayout>
-      <PageIntro
-        eyebrow="Jobs"
-        title="Come Work With Us"
-      >
+      <PageIntro eyebrow="Jobs" title="Come Work With Us">
         <p className="text-xl leading-relaxed">
-          Jahangir Restaurant Management and Operation Company was established
-          in 2011 and is a leading Jordanian company in the food and beverage
-          sector. We are known for innovation, high-quality service, and a
-          commitment to creating exceptional dining experiences.
+          Join the teams behind Oliva, Rumi Café &amp; Deli, Bahi, and our
+          Central Kitchen, spaces shaped by care, consistency, and attention to
+          detail.
         </p>
         <div className="mt-8 max-w-3xl space-y-6 text-base leading-relaxed text-neutral-600">
           <p>
-            Alongside our guest experience, we focus on developing the work
-            environment and supporting young Jordanians through training and
-            qualification opportunities.
-          </p>
-          <p>
-            Jahangir is home to Oliva Pizza &amp; Pasta, Rumi Cafe, Bahi, and
-            our own Central Kitchen.
+            At Jahangir, we focus on the people behind the experience. We create
+            a work environment where individuals can learn, grow, and take pride
+            in what they do every day.
           </p>
         </div>
       </PageIntro>
@@ -64,8 +56,8 @@ export default function JobsPage() {
         <FadeIn>
           <div className="max-w-3xl rounded-3xl bg-neutral-50 px-8 py-10 ring-1 ring-neutral-950/5 sm:px-10">
             <p className="max-w-2xl text-base leading-relaxed text-neutral-600">
-              View our current opportunities on our hiring platform. Openings
-              will open in a new tab.
+              Explore our latest openings across the Jahangir group on our
+              hiring platform. Positions open in a new tab.
             </p>
             <div className="mt-8">
               <Button href={jobsUrl} target="_blank" rel="noreferrer">
@@ -81,33 +73,33 @@ export default function JobsPage() {
 
       <SectionIntro
         className="mt-16 sm:mt-20 lg:mt-24"
-        eyebrow="Our Culture"
-        title="The Workplace & People"
+        eyebrow="Why Join Jahangir"
+        title="A Place To Learn, Contribute, And Grow"
       >
         <p className="text-lg leading-relaxed">
-          With a team of dedicated individuals, Jahangir&apos;s success is
-          powered by its people. We invest heavily in training, providing an
-          average of 200 hours of hands-on experience for every new hire.
+          We care about building teams that support one another and create space
+          for meaningful growth from the very beginning.
         </p>
       </SectionIntro>
 
       <Container className="mt-10">
         <FadeIn>
           <div className="max-w-4xl rounded-3xl bg-neutral-50 px-8 py-10 ring-1 ring-neutral-950/5 sm:px-10">
-            <div className="space-y-6 text-base leading-relaxed text-neutral-600">
-              <p>
-                By fostering a collaborative and growth-oriented environment,
-                Jahangir ensures its employees thrive while contributing to its
-                mission. Each person brings something special to the table,
-                from our kitchen staff to our operations managers to our
-                community engagement champions.
-              </p>
-              <p>
-                Together, we work seamlessly to make every experience
-                extraordinary. And with a team that is 100% Jordanian, we are
-                proud to support local talent, create opportunities, and build
-                a workforce that reflects the spirit of our country.
-              </p>
+            <div className="grid gap-4 sm:grid-cols-2">
+              {[
+                'Hands-on experience from day one',
+                'Real training and development opportunities',
+                'A supportive, team-driven environment',
+                'Opportunities to grow within the company',
+                'Work that is visible, valued, and meaningful',
+              ].map((item) => (
+                <div
+                  key={item}
+                  className="rounded-2xl bg-white px-5 py-4 text-base leading-relaxed text-neutral-600 ring-1 ring-neutral-950/5"
+                >
+                  {item}
+                </div>
+              ))}
             </div>
           </div>
         </FadeIn>
